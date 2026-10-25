@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#081a35">
+<title>StudyLoop — Small steps. Stronger understanding.</title>
+<style>
+:root{--navy:#081a35;--navy2:#102b50;--blue:#2478d0;--sky:#dceeff;--pale:#f4f8fc;--ink:#13243a;--muted:#617187;--line:#dce5ef;--white:#fff;--green:#168568;--radius:18px;--shadow:0 14px 38px rgba(8,26,53,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#f7faff;line-height:1.55}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #7cbcff;outline-offset:3px}a{color:inherit}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}.topbar{background:rgba(8,26,53,.97);color:white;position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:-.03em;font-size:1.2rem;text-decoration:none}.logo{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#52b7ff,#2873d2);font-weight:900;color:#071a34;box-shadow:0 0 24px #2478d055}.navlinks{display:flex;gap:24px;align-items:center}.navlinks a{font-size:.92rem;text-decoration:none;color:#d9e7f8}.navlinks a:hover{color:white}.nav-cta,.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:750;transition:transform .18s ease,background .18s ease,box-shadow .18s ease}.nav-cta,.btn-primary{background:#2d86e7;color:white;box-shadow:0 7px 18px #2478d033}.btn-secondary{background:white;color:var(--navy);border:1px solid var(--line)}.btn:hover,.nav-cta:hover{transform:translateY(-2px)}.hero{background:radial-gradient(ellipse at 78% 30%,#1d4e82 0,transparent 37%),linear-gradient(135deg,#081a35,#102d52);color:white;padding:78px 0 68px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:48px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#9ed2ff;text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;font-weight:850}.dot{width:7px;height:7px;border-radius:50%;background:#69d6b2;box-shadow:0 0 0 5px #69d6b222}.hero h1{font-size:clamp(2.55rem,5vw,4.55rem);line-height:1.04;letter-spacing:-.055em;margin:20px 0}.hero h1 span{color:#75bdff}.hero p{color:#c8d8ea;max-width:580px;font-size:1.08rem}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:27px}.hero .btn-secondary{background:#ffffff12;color:white;border-color:#ffffff35}.hero-note{font-size:.84rem!important;color:#a9bfd8!important;margin-top:18px}.preview{background:#fff;color:var(--ink);border:1px solid #ffffff4d;border-radius:24px;padding:22px;box-shadow:0 24px 70px #0003;transform:rotate(1deg)}.preview-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.preview-head strong{font-size:.95rem}.pill{display:inline-flex;align-items:center;gap:6px;background:#e8f5ff;color:#1767b4;border-radius:99px;padding:5px 10px;font-size:.73rem;font-weight:800}.preview h3{font-size:1.45rem;line-height:1.2;margin:20px 0 8px}.preview p{color:var(--muted);font-size:.9rem;margin:0}.progress-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin:19px 0 7px}.progress-track{height:8px;background:#e9eff6;border-radius:99px;overflow:hidden}.progress-fill{height:100%;width:62%;background:linear-gradient(90deg,#2878d0,#6bbdff);border-radius:99px}.mini-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.mini-card{background:#f3f8fd;padding:13px;border-radius:12px}.mini-card b{display:block;font-size:1.05rem}.mini-card span{color:var(--muted);font-size:.76rem}.section{padding:72px 0}.section.white{background:white}.section-head{max-width:680px;margin-bottom:30px}.kicker{color:#2478d0;font-size:.76rem;font-weight:850;letter-spacing:.13em;text-transform:uppercase}.section h2{font-size:clamp(1.8rem,3vw,2.65rem);letter-spacing:-.04em;line-height:1.15;margin:10px 0 12px}.section-head p{color:var(--muted);margin:0}.gap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.gap-card{padding:22px;background:#f5f9fe;border:1px solid #e1ebf6;border-radius:16px;min-height:172px}.num{font-size:.78rem;font-weight:900;color:#2878d0;letter-spacing:.08em}.gap-card h3{font-size:1.03rem;margin:17px 0 8px}.gap-card p{font-size:.88rem;color:var(--muted);margin:0}.loop-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:30px;align-items:start}.steps{display:grid;gap:12px}.step{display:flex;gap:14px;align-items:flex-start;padding:15px;border:1px solid var(--line);border-radius:14px;background:white}.step-no{display:grid;place-items:center;flex:0 0 32px;height:32px;border-radius:10px;background:var(--sky);color:#1767b4;font-weight:900}.step h3{margin:0 0 4px;font-size:.98rem}.step p{margin:0;color:var(--muted);font-size:.86rem}.lab{background:var(--navy);color:white;border-radius:20px;padding:24px;box-shadow:var(--shadow)}.lab-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.lab h3{margin:0;font-size:1.2rem}.lab .small{color:#b8cce2;font-size:.85rem;margin:6px 0 20px}.field-label{display:block;font-size:.8rem;color:#c4d8ee;font-weight:750;margin:14px 0 7px}.lab select,.lab input{width:100%;border:1px solid #385573;background:#102b50;color:white;padding:12px;border-radius:10px}.lab option{color:#13243a;background:white}.topic-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.topic-chip{border:1px solid #45617e;background:#102b50;color:#e8f4ff;border-radius:99px;padding:7px 11px;font-size:.78rem}.topic-chip[aria-pressed="true"]{background:#2d86e7;border-color:#2d86e7;color:white}.lesson{background:white;color:var(--ink);border-radius:14px;padding:18px;margin-top:18px}.lesson h4{margin:0 0 7px;font-size:1.05rem}.lesson p{font-size:.9rem;color:var(--muted);margin:0 0 12px}.example{border-left:3px solid #2d86e7;background:#f2f8ff;padding:11px 13px;font-size:.86rem;border-radius:0 8px 8px 0}.quiz{margin-top:15px;border-top:1px solid #dce5ef;padding-top:14px}.quiz-question{font-weight:800;font-size:.91rem;margin-bottom:10px}.answers{display:grid;gap:8px}.answer{background:#f4f8fc;border:1px solid #dbe5f0;text-align:left;border-radius:9px;padding:10px 12px;color:var(--ink)}.answer:hover{border-color:#6ba9e8}.answer.correct{background:#e5f8f1;border-color:#46b996}.answer.wrong{background:#fff0ed;border-color:#e9a092}.feedback{min-height:24px;font-size:.84rem;font-weight:750;margin:9px 0 0}.feedback.good{color:#168568}.feedback.bad{color:#b74735}.lab-foot{font-size:.75rem;color:#a9bfd8;margin:14px 0 0}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{padding:22px;border-radius:16px;background:var(--navy);color:white;min-height:170px;position:relative;overflow:hidden}.feature:after{content:"";position:absolute;width:110px;height:110px;border:1px solid #6bbdff25;border-radius:50%;right:-32px;bottom:-40px}.feature-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#173e68;color:#9ed2ff;font-weight:900;margin-bottom:15px}.feature h3{margin:0 0 7px;font-size:1rem}.feature p{color:#c2d3e6;font-size:.87rem;margin:0}.phases{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;position:relative}.phase{padding:18px 14px;background:#f5f9fe;border:1px solid #e0eaf5;border-radius:14px}.phase .phase-tag{font-size:.72rem;color:#2478d0;font-weight:900;letter-spacing:.1em}.phase h3{font-size:.95rem;line-height:1.3;margin:12px 0 7px}.phase p{font-size:.81rem;color:var(--muted);margin:0}.status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.status{padding:22px;border-radius:16px;border:1px solid var(--line);background:white}.status.active{background:#e5f2ff;border-color:#b9dbff}.status span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:900;color:#2478d0}.status h3{margin:10px 0;font-size:1.15rem}.status p{color:var(--muted);font-size:.88rem;margin:0}.support{margin-top:25px;padding:22px;background:#f4f8fc;border-radius:16px}.support h3{margin:0 0 10px}.support p{color:var(--muted);margin:0;font-size:.92rem}.budget{width:100%;border-collapse:collapse;background:white;border-radius:14px;overflow:hidden;box-shadow:0 3px 18px #081a3508}.budget th,.budget td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);font-size:.9rem}.budget th{background:var(--navy);color:white;font-size:.78rem;letter-spacing:.05em}.budget tr:last-child td{border-bottom:0;font-weight:850;background:#e5f2ff}.fineprint{color:var(--muted);font-size:.82rem;margin-top:12px}.impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.impact-grid h3{margin-top:0}.impact-grid ul{padding-left:20px;color:#d1deec}.impact-grid li{margin:8px 0}.honest{margin-top:24px;padding:15px 18px;background:#dceeff;color:#12365a;border-radius:12px;text-align:center;font-weight:800}.footer{background:#06142a;color:#c5d5e8;padding:32px 0}.footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer p{font-size:.83rem;margin:5px 0}.footer a{color:#9ed2ff}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#102b50;color:white;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);z-index:20;font-size:.88rem}.toast.show{opacity:1;transform:translate(-50%,0)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:850px){.hero-grid,.loop-grid,.impact-grid{grid-template-columns:1fr}.hero{padding:58px 0}.preview{max-width:560px;transform:none}.gap-grid{grid-template-columns:repeat(2,1fr)}.phases{grid-template-columns:repeat(2,1fr)}.phase:last-child{grid-column:span 2}.navlinks{gap:12px}.navlinks a:not(.nav-cta){display:none}}
+@media(max-width:560px){.wrap{width:min(100% - 26px,1120px)}.nav{min-height:64px}.nav-cta{padding:10px 12px;font-size:.84rem}.hero h1{font-size:2.7rem}.section{padding:54px 0}.gap-grid,.feature-grid,.status-grid{grid-template-columns:1fr}.gap-card{min-height:auto}.gap-card h3{margin-top:10px}.phases{grid-template-columns:1fr}.phase:last-child{grid-column:auto}.footer-row{align-items:flex-start;flex-direction:column}.budget th,.budget td{padding:10px 8px;font-size:.78rem}.preview{padding:17px}.lab{padding:18px}}
+@media (prefers-reduced-motion: no-preference){.reveal{opacity:0;transform:translateY(18px);animation:rise .65s cubic-bezier(.25,1,.5,1) forwards}.reveal.delay-1{animation-delay:.12s}.reveal.delay-2{animation-delay:.24s}.reveal.delay-3{animation-delay:.36s}.float{animation:float 5s ease-in-out infinite}.glow{animation:softGlow 3.5s ease-in-out infinite}.toast{transition:opacity .2s ease,transform .2s ease}@keyframes rise{to{opacity:1;transform:translateY(0)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}@keyframes softGlow{0%,100%{box-shadow:0 7px 18px #2478d033}50%{box-shadow:0 8px 28px #2478d077}}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* Trust notice, illustrations, and interactive terms */
+.security-banner{display:flex;gap:13px;align-items:flex-start;background:#fff5d9;border:1px solid #e9cf83;color:#654b0c;border-radius:15px;padding:15px 17px;margin:0 0 26px}
+.security-banner p{margin:3px 0 0;font-size:.88rem}.security-icon{display:grid;place-items:center;flex:0 0 34px;height:34px;border-radius:10px;background:#ffe4a0;font-weight:900}
+.notice-overlay{position:fixed;inset:0;background:#031020d9;z-index:100;display:grid;place-items:center;padding:16px;backdrop-filter:blur(6px)}.notice-overlay[hidden]{display:none}
+.notice-dialog{width:min(550px,100%);max-height:88vh;overflow:auto;background:#fff;border-radius:22px;padding:25px;box-shadow:0 30px 100px #0007}.notice-top{display:flex;gap:13px;align-items:flex-start}.notice-emblem{display:grid;place-items:center;flex:0 0 45px;height:45px;background:#fff0cc;color:#805500;border-radius:14px;font-size:1.4rem;font-weight:900}.notice-dialog h2{font-size:1.45rem;line-height:1.2;margin:4px 0 8px}.notice-dialog p,.notice-dialog li{color:#52647a;font-size:.9rem}.notice-dialog li{margin:7px 0}.notice-check{display:flex;gap:10px;background:#f2f7fc;border-radius:12px;padding:13px;margin:16px 0;font-size:.88rem}.notice-check input{margin-top:4px;accent-color:#2478d0}.notice-actions{display:flex;flex-wrap:wrap;gap:10px}.notice-actions button{flex:1;min-width:140px}.notice-foot{font-size:.76rem!important}
+.terms-area{background:#eef5fc;border:1px solid #d8e5f3;border-radius:18px;padding:22px;margin-top:24px}.terms-area h3{margin:0 0 8px}.terms-area>p{color:var(--muted);font-size:.9rem}.term-item{border-top:1px solid #d4e0ed}.term-item button{display:flex;justify-content:space-between;gap:12px;align-items:center;width:100%;border:0;background:transparent;color:var(--ink);text-align:left;padding:14px 0;font-weight:800}.term-item button span:last-child{font-size:1.2rem;color:#2478d0}.term-content{display:none;color:var(--muted);font-size:.9rem;padding:0 0 15px}.term-item.open .term-content{display:block}
+.hero-illustration{display:block;width:100%;height:auto;margin:12px auto 8px}.process-visual{background:var(--navy);border-radius:18px;padding:14px;margin-bottom:20px}.process-visual svg{display:block;width:100%;height:auto}.interaction-note{display:flex;gap:10px;background:#e5f8f1;color:#145b49;padding:13px 15px;border-radius:12px;font-size:.88rem;margin-top:15px}
+@media(max-width:560px){.notice-dialog{padding:19px}.terms-area{padding:15px}.security-banner{padding:12px}}
+
+
+/* Colourful 3D-inspired learning artwork and tactile interactions */
+.artwork-stage{position:relative;isolation:isolate;perspective:1000px;margin:18px 0 8px;padding:12px;border-radius:22px;background:linear-gradient(135deg,#101d4c,#172b5a 52%,#2b2364);border:1px solid #6e8cff55;overflow:hidden}
+.artwork-stage:before,.artwork-stage:after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(2px);pointer-events:none}
+.artwork-stage:before{width:190px;height:190px;right:-35px;top:-60px;background:radial-gradient(circle,#ff65c766,transparent 70%)}
+.artwork-stage:after{width:170px;height:170px;left:-40px;bottom:-65px;background:radial-gradient(circle,#31dcff55,transparent 70%)}
+.artwork-stage svg{display:block;width:100%;height:auto;overflow:visible}
+.artwork-caption{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#dce9ff;font-size:.78rem;padding:5px 5px 1px}
+.artwork-caption span:last-child{color:#a9c8ff}
+.artwork-object{transform-box:fill-box;transform-origin:center;transition:transform .28s cubic-bezier(.2,.8,.2,1),filter .28s ease;cursor:pointer}
+.artwork-object:hover,.artwork-object:focus{transform:translateY(-7px) rotate(-2deg) scale(1.035);filter:drop-shadow(0 12px 12px #02081788);outline:none}
+.artwork-object:focus-visible{filter:drop-shadow(0 0 6px #fff)}
+.visual-prompt{font-size:.8rem;color:#c8dcff;text-align:center;margin:8px 0 0}
+.art-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:22px}
+.art-card{position:relative;min-height:190px;overflow:hidden;border:1px solid #dbe6f5;border-radius:18px;padding:18px;background:linear-gradient(145deg,#fff,#f0f6ff);box-shadow:0 10px 24px #0b2d5310;transform-style:preserve-3d;transition:transform .25s ease,box-shadow .25s ease}
+.art-card:hover,.art-card:focus-within{transform:translateY(-6px) rotateX(2deg) rotateY(-2deg);box-shadow:0 18px 34px #143f7020}
+.art-card h3{margin:8px 0 4px;font-size:1rem}.art-card p{margin:0;color:var(--muted);font-size:.84rem}
+.art-card svg{width:100%;height:110px;display:block}
+.art-card .art-tag{display:inline-block;border-radius:99px;background:#e4f0ff;color:#1c62ad;font-size:.7rem;font-weight:850;padding:4px 8px}
+.interactive-art-button{display:inline-flex;align-items:center;gap:8px;border:1px solid #9bc8ff;background:#e9f4ff;color:#174d88;border-radius:99px;padding:9px 13px;font-weight:800;font-size:.82rem;margin-top:12px;transition:transform .2s ease,background .2s ease}
+.interactive-art-button:hover{transform:translateY(-2px);background:#d8ebff}
+.art-status{font-size:.8rem;color:#c7e3ff;min-height:1.3em;margin:8px 3px 0}
+@media(max-width:700px){.art-cards{grid-template-columns:1fr}.art-card{min-height:170px}.art-card svg{height:100px}}
+@media(prefers-reduced-motion:reduce){.artwork-object,.art-card,.interactive-art-button{transition:none!important}.artwork-object:hover,.art-card:hover{transform:none}}
+
+
+/* Mini-lab colourful 3D learning scene and quiz controls */
+.lab-art{position:relative;margin:14px 0 18px;padding:10px;border-radius:16px;overflow:hidden;background:radial-gradient(circle at 20% 20%,#5341a8 0,transparent 36%),linear-gradient(135deg,#142f67,#321b66 70%,#173f70);border:1px solid #547fca}
+.lab-art svg{display:block;width:100%;height:auto;max-height:205px}
+.lab-art .float3d{transform-box:fill-box;transform-origin:center;cursor:pointer;transition:transform .25s ease,filter .25s ease}
+.lab-art .float3d:hover,.lab-art .float3d:focus{transform:translateY(-5px) rotate(3deg) scale(1.05);filter:drop-shadow(0 8px 8px #02081788);outline:none}
+.lab-art-caption{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#d7e8ff;font-size:.76rem;padding:4px 3px}
+.lab-art-caption strong{color:#8fe7ff}
+.lab-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:12px 0}
+.lab-score{display:flex;gap:8px;flex-wrap:wrap}
+.score-pill{border:1px solid #42658d;background:#10284b;color:#e7f3ff;border-radius:99px;padding:7px 10px;font-size:.77rem;font-weight:800}
+.quiz-progress{height:6px;background:#dfe9f5;border-radius:99px;overflow:hidden;margin:8px 0 14px}
+.quiz-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#20c9a6,#47a4ff,#a58bff);transition:width .25s ease}
+.quiz-next{border:0;border-radius:10px;padding:10px 14px;background:linear-gradient(135deg,#37c9d8,#3586f7);color:#fff;font-weight:850;box-shadow:0 7px 18px #1477d333}
+.quiz-next:disabled{opacity:.45;cursor:not-allowed}
+.answer{transition:transform .16s ease,background .16s ease,border-color .16s ease}
+.answer:hover:not(:disabled){transform:translateX(3px);background:#e8f3ff}
+.lab-tip{border:1px solid #d8e8ff;background:linear-gradient(100deg,#eef8ff,#f8f1ff);color:#3b4c69;padding:11px 13px;border-radius:11px;font-size:.83rem;margin-top:12px}
+@media(prefers-reduced-motion:reduce){.lab-art .float3d,.answer,.quiz-progress-fill{transition:none!important}.lab-art .float3d:hover{transform:none}}
+
+
+.learning-dashboard{margin-top:18px;padding:17px;border-radius:16px;background:linear-gradient(145deg,#f5f0ff,#e9f7ff 60%,#e7fff7);border:1px solid #d3e4ff;color:#142b49;box-shadow:0 10px 28px #02081716}
+.dashboard-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}.dashboard-kicker{font-size:.66rem;letter-spacing:.13em;font-weight:900;color:#6550c8}.dashboard-heading h4{font-size:1.08rem;margin:3px 0}.dashboard-heading p{font-size:.78rem;color:#586b86;margin:0;max-width:380px}.dashboard-badge{font-size:.7rem;font-weight:900;padding:7px 10px;border-radius:99px;background:#fff0c5;color:#875400}.dashboard-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:15px 0}.dashboard-stats article{padding:11px 9px;background:#ffffffc9;border:1px solid #dbe7f7;border-radius:12px;min-width:0}.dashboard-stats span{display:block;font-size:.67rem;color:#64748b;line-height:1.25}.dashboard-stats strong{display:block;font-size:1.25rem;color:#215eb6;margin-top:4px}.learned-box{padding:12px;border-radius:12px;background:#fff;border-left:4px solid #32bfa3}.learned-box strong{font-size:.82rem}.learned-box p{font-size:.8rem;color:#52647a;margin:4px 0 0}.dashboard-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.dashboard-share,.dashboard-reset{border:0;border-radius:10px;padding:10px 12px;font-size:.78rem;font-weight:850}.dashboard-share{background:linear-gradient(120deg,#2e80e7,#7865e9);color:#fff}.dashboard-reset{background:#fff;color:#255a96;border:1px solid #c9dcf3}.share-status{font-size:.72rem;color:#49617e;min-height:1em;margin:7px 0 0}.round-complete{border-color:#4dc5a6!important;box-shadow:0 0 0 2px #4dc5a622 inset}.lab-art .float3d{animation:floatLearning 4s ease-in-out infinite}.lab-art .float3d:nth-of-type(2){animation-delay:-1s}.lab-art .float3d:nth-of-type(3){animation-delay:-2s}.lab-art .float3d:nth-of-type(4){animation-delay:-3s}
+@keyframes floatLearning{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@media(max-width:460px){.dashboard-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-actions button{flex:1}}
+@media(prefers-reduced-motion:reduce){.lab-art .float3d{animation:none!important}}
+
+@media(max-width:700px){iframe[title="Expanded School and College Mini-Labs"]{height:2900px!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="nav wrap" aria-label="Main navigation">
+    <a class="brand" href="#home" aria-label="StudyLoop home"><span class="logo" aria-hidden="true">S</span>StudyLoop</a>
+    <div class="navlinks"><a href="#challenge">The gap</a><a href="#learn">Try a lesson</a><a href="#roadmap">Roadmap</a><a href="#trust">Privacy & terms</a><a class="nav-cta" href="#learn">Start learning ↗</a></div>
+  </nav>
+</header>
+<main>
+<div class="wrap" style="padding-top:20px"><aside class="security-banner" role="note" aria-label="Security warning"><span class="security-icon" aria-hidden="true">!</span><div><strong>Security & privacy reminder</strong><p>This is an educational concept demo, not a secure account service. Never enter passwords, OTPs, contact details, student IDs, or other private data. Read the <a href="#trust">terms and privacy notes</a> before use.</p></div></aside></div>
+<section class="hero" id="home">
+ <div class="wrap hero-grid">
+  <div class="reveal">
+   <span class="eyebrow"><span class="dot"></span> A lightweight self-study concept</span>
+   <h1>Small steps.<br><span>Stronger understanding.</span></h1>
+   <p>Turn difficult topics into clear explanations, quick practice, and a simple way to see your progress—one learning loop at a time.</p>
+   <div class="hero-actions"><a class="btn btn-primary glow" href="#learn" style="text-decoration:none">Try the learning loop ↘</a><a class="btn btn-secondary" href="#approach" style="text-decoration:none">Explore the concept</a></div>
+   <p class="hero-note">A conceptual demonstration for students and educators. No account or personal details needed.</p>
+  </div>
+  <aside class="preview float reveal delay-2" aria-label="Illustration of a learning dashboard">
+   <div class="preview-head"><strong>Your learning snapshot</strong><span class="pill">DEMO</span></div>
+   <div class="artwork-stage" id="hero-art-stage">
+    <svg viewBox="0 0 500 245" role="img" aria-label="Colourful 3D-inspired illustration of books, a glowing idea bulb, a study planet, and a learning path">
+     <defs>
+      <linearGradient id="bg3d" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#172d67"/><stop offset="1" stop-color="#321d66"/></linearGradient>
+      <linearGradient id="bookTop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8cf4ff"/><stop offset="1" stop-color="#3b92ff"/></linearGradient>
+      <linearGradient id="bookSide" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2260bb"/><stop offset="1" stop-color="#142e75"/></linearGradient>
+      <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff9cda"/><stop offset="1" stop-color="#ff4b9c"/></linearGradient>
+      <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff6a2"/><stop offset="1" stop-color="#ffae37"/></linearGradient>
+      <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bd9cff"/><stop offset="1" stop-color="#7655ee"/></linearGradient>
+      <filter id="shadow3d" x="-40%" y="-40%" width="180%" height="200%"><feDropShadow dx="0" dy="9" stdDeviation="7" flood-color="#02071e" flood-opacity=".5"/></filter>
+     </defs>
+     <rect x="1" y="1" width="498" height="243" rx="17" fill="url(#bg3d)"/>
+     <g opacity=".25" stroke="#8ab8ff" stroke-width=".8"><path d="M20 42H480M20 82H480M20 122H480M20 162H480M20 202H480"/><path d="M60 15V230M120 15V230M180 15V230M240 15V230M300 15V230M360 15V230M420 15V230"/></g>
+     <g class="artwork-object" tabindex="0" role="button" aria-label="Explore the glowing idea" data-art-action="idea" filter="url(#shadow3d)">
+      <ellipse cx="368" cy="82" rx="43" ry="12" fill="#ff68c8" opacity=".24"/>
+      <path d="M350 67a24 24 0 1 1 37 20c-5 4-6 10-6 14h-20c0-5-2-10-6-14a24 24 0 0 1-5-20" fill="url(#gold)" stroke="#fff4ba" stroke-width="2"/>
+      <path d="M360 104h17M362 110h13M365 116h7" stroke="#ffb44d" stroke-width="4" stroke-linecap="round"/>
+      <path d="M368 27v-9M341 35l-7-7M395 36l7-7M334 63h-9M403 63h9" stroke="#fff2a0" stroke-width="3" stroke-linecap="round"/>
+     </g>
+     <g class="artwork-object" tabindex="0" role="button" aria-label="Explore the learning book" data-art-action="book" filter="url(#shadow3d)">
+      <path d="M72 143l111-30 78 35-111 34z" fill="url(#bookTop)"/>
+      <path d="M72 143v24l78 39v-24z" fill="#2768cf"/>
+      <path d="M150 182v24l111-32v-26z" fill="url(#bookSide)"/>
+      <path d="M83 146l99-27 61 27-99 27z" fill="#f7fdff"/>
+      <path d="M93 148l89-24 48 21-89 25z" fill="#dceeff"/>
+      <path d="M119 142l44-12 22 10-44 12z" fill="#a8d9ff"/>
+      <path d="M150 182v24l-11-5v-24z" fill="#9beaff"/>
+     </g>
+     <g class="artwork-object" tabindex="0" role="button" aria-label="Explore the practice planet" data-art-action="planet" filter="url(#shadow3d)">
+      <ellipse cx="298" cy="175" rx="50" ry="14" fill="#6d5cff" opacity=".35"/>
+      <ellipse cx="298" cy="161" rx="43" ry="12" fill="none" stroke="#9c8aff" stroke-width="6" transform="rotate(-18 298 161)"/>
+      <circle cx="298" cy="153" r="31" fill="url(#purple)"/>
+      <path d="M279 139q14-12 27 0t9 19q-10 12-21 4t-15-23" fill="#d8caff" opacity=".6"/>
+      <circle cx="287" cy="144" r="5" fill="#fff" opacity=".8"/>
+      <path d="M273 171q18 9 37-1" fill="none" stroke="#5740c9" stroke-width="4" stroke-linecap="round"/>
+     </g>
+     <g class="artwork-object" tabindex="0" role="button" aria-label="Explore the progress star" data-art-action="progress" filter="url(#shadow3d)">
+      <path d="M215 42l8 16 18 3-13 13 3 18-16-9-16 9 3-18-13-13 18-3z" fill="url(#pink)" stroke="#ffc6e7" stroke-width="1.5"/>
+      <circle cx="215" cy="67" r="4" fill="#fff"/>
+     </g>
+     <g fill="#a8d7ff"><circle cx="55" cy="48" r="3"/><circle cx="448" cy="127" r="4"/><circle cx="405" cy="207" r="3"/><circle cx="250" cy="30" r="2"/></g>
+     <g font-family="system-ui,sans-serif" font-size="10" font-weight="800" fill="#eaf4ff"><text x="28" y="224">LEARN</text><text x="229" y="224">PRACTISE</text><text x="398" y="224">GROW</text></g>
+    </svg>
+    <div class="artwork-caption"><span>✦ Learn · Practise · Grow</span><span>Tap or focus the 3D objects</span></div>
+    <p class="art-status" id="art-status" aria-live="polite">Choose an object in the scene to reveal a learning tip.</p>
+   </div>
+   <h3>Build understanding<br>at your own pace.</h3><p>Short explanations + practice questions + progress review.</p>
+   <div class="progress-label"><span>Example topic progress</span><strong>3 of 5</strong></div><div class="progress-track" role="progressbar" aria-label="Example topic progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="3"><div class="progress-fill"></div></div>
+   <div class="mini-row"><div class="mini-card"><b>5 min</b><span>Short study session</span></div><div class="mini-card"><b>1 loop</b><span>Learn → practise → review</span></div></div>
+  </aside>
+ </div>
+</section>
+<section class="section white" id="challenge">
+ <div class="wrap">
+  <div class="section-head"><span class="kicker">01 / The self-study gap</span><h2>Good learning should feel easier to begin.</h2><p>Independent study can become difficult when explanations, practice, and useful feedback are scattered across different places.</p></div>
+  <div class="gap-grid">
+   <article class="gap-card reveal"><span class="num">01</span><h3>Difficult topics</h3><p>Some concepts feel hard to unpack without a clear starting point.</p></article>
+   <article class="gap-card reveal delay-1"><span class="num">02</span><h3>Limited support</h3><p>Clear explanations and examples may not always be easy to find.</p></article>
+   <article class="gap-card reveal delay-2"><span class="num">03</span><h3>Irregular practice</h3><p>Without a simple routine, practice can lose its rhythm.</p></article>
+   <article class="gap-card reveal delay-3"><span class="num">04</span><h3>Fragmented resources</h3><p>Learning materials can be spread across many tools and websites.</p></article>
+  </div>
+ </div>
+</section>
+<section class="section" id="learn">
+ <div class="wrap">
+  <div class="section-head"><span class="kicker">02 / Try the learning loop</span><h2>Learn a little. Practise a little. Review.</h2><p>Choose a sample topic to explore a tiny, interactive demonstration. This is a front-end concept—not a complete curriculum or a live AI tutor.</p></div>
+  <div class="loop-grid">
+   <div class="steps" id="approach">
+    <article class="step"><span class="step-no">1</span><div><h3>Choose a topic</h3><p>Start with one small idea instead of an entire chapter.</p></div></article>
+    <article class="step"><span class="step-no">2</span><div><h3>Read a short explanation</h3><p>Focus on plain language and one memorable example.</p></div></article>
+    <article class="step"><span class="step-no">3</span><div><h3>Try a practice question</h3><p>Answer immediately and receive simple feedback.</p></div></article>
+    <article class="step"><span class="step-no">4</span><div><h3>Review and repeat</h3><p>Use the result to decide what to revisit next.</p></div></article>
+   </div>
+<div class="lab lab-expanded"><div class="lab-head"><h3>School & College Learning Mini-Labs</h3><span class="pill">EXPANDED</span></div><p class="small">The original StudyLoop sections remain unchanged. Use the expanded lab below for separate school and college practice.</p><iframe title="Expanded School and College Mini-Labs" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+&lt;meta name=&quot;theme-color&quot; content=&quot;#101b46&quot;&gt;
+&lt;title&gt;StudyLoop Mini-Labs | School &amp; College&lt;/title&gt;
+&lt;style&gt;
+:root{--ink:#172342;--muted:#63708b;--navy:#101b46;--blue:#367df5;--line:#dce6f5;--paper:#f5f8ff;--white:#fff;--mint:#21b995;--pink:#ff66b3;--gold:#ffc857;--purple:#8564f5}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}button,select{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible,[tabindex=&quot;0&quot;]:focus-visible{outline:3px solid #ffad42;outline-offset:3px}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+header{background:radial-gradient(circle at 80% 10%,#5847b8 0,transparent 32%),linear-gradient(120deg,#101b46,#153d76 65%,#362568);color:white;padding:28px 0 42px;overflow:hidden}.top{display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;gap:10px;align-items:center;font-weight:900;font-size:1.1rem}.logo{width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,#72e9db,#4d8dff,#b17cff);display:grid;place-items:center;color:#101b46;font-weight:1000;box-shadow:0 7px 22px #050b2c70}.pill{font-size:.72rem;font-weight:850;letter-spacing:.08em;padding:6px 10px;border-radius:99px;background:#ffffff1c;border:1px solid #ffffff40}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center;padding-top:42px}.eyebrow{color:#8deee3;text-transform:uppercase;letter-spacing:.13em;font-size:.76rem;font-weight:900}.hero h1{font-size:clamp(2.25rem,5vw,4.25rem);letter-spacing:-.055em;line-height:1.03;margin:13px 0}.hero p{color:#d5e5ff;max-width:620px}.hero-art{background:linear-gradient(145deg,#142b60,#271d59);border:1px solid #ffffff30;border-radius:25px;padding:12px;box-shadow:0 24px 65px #050b2b55;perspective:900px}.hero-art svg{display:block;width:100%;height:auto}.art-object{transform-box:fill-box;transform-origin:center;transition:transform .25s ease,filter .25s ease;cursor:pointer}.art-object:hover,.art-object:focus{transform:translateY(-6px) rotate(-2deg) scale(1.04);filter:drop-shadow(0 12px 10px #050b2b88)}.art-caption{color:#d8e8ff;font-size:.8rem;padding:8px 6px 1px}.security{margin-top:20px;padding:13px 16px;border:1px solid #f0d48b;border-radius:14px;background:#fff6db;color:#6a4c08;display:flex;gap:12px}.security b{display:block}.security p{margin:2px 0;font-size:.87rem}
+main{padding:26px 0 60px}.section-title{margin:26px 0 16px}.section-title .eyebrow{color:#4c63c6}.section-title h2{font-size:clamp(1.55rem,3vw,2.2rem);letter-spacing:-.04em;margin:4px 0}.section-title p{margin:0;color:var(--muted)}
+.lab-switch{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}.level-btn{border:1px solid var(--line);border-radius:18px;background:white;text-align:left;padding:18px;display:flex;gap:13px;align-items:center;box-shadow:0 7px 22px #142b5010;transition:transform .2s,border-color .2s}.level-btn:hover{transform:translateY(-3px)}.level-btn[aria-pressed=&quot;true&quot;]{border:2px solid #6d68ed;background:linear-gradient(135deg,#f2f0ff,#eaf5ff)}.level-emoji{font-size:2rem;display:grid;place-items:center;width:54px;height:54px;border-radius:16px;background:linear-gradient(135deg,#ffe6a7,#ffb4d7)}.level-btn strong{display:block;font-size:1.1rem}.level-btn small{color:var(--muted)}
+.lab-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);gap:18px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 12px 32px #132c5010}.panel h3{margin:0;font-size:1.22rem}.muted{color:var(--muted)}.controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}.field label{display:block;font-size:.8rem;font-weight:850;margin-bottom:6px}.field select{width:100%;border:1px solid #cdd9eb;border-radius:12px;padding:11px;background:white;color:var(--ink)}.topic-chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 15px}.topic-chip{border:1px solid #d7e3f4;border-radius:99px;padding:7px 11px;background:#f7faff;color:#3c4d70;font-size:.8rem;font-weight:800}.topic-chip.active{background:#e7eaff;color:#463bb2;border-color:#a9a4ff}.lesson{border-radius:16px;padding:15px;background:linear-gradient(130deg,#edf8ff,#f4f0ff);border:1px solid #e0e7ff}.lesson h4{margin:0 0 5px;font-size:1.02rem}.lesson p{margin:0;color:#52617d;font-size:.9rem}.example{font-size:.85rem;font-weight:750;color:#3658a2;margin-top:9px}.quiz-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:18px 0 8px}.counter{font-size:.8rem;font-weight:850;color:#52617d;background:#f0f4fb;padding:6px 9px;border-radius:99px}.progress{height:8px;border-radius:99px;background:#e9eef8;overflow:hidden}.progress div{height:100%;width:0;background:linear-gradient(90deg,#3b8cff,#9c65f5,#ff69b4);transition:width .25s ease}.question{font-size:1.12rem;font-weight:850;margin:17px 0 12px}.answers{display:grid;gap:9px}.answer{border:1px solid #dbe5f3;border-radius:13px;padding:12px 14px;text-align:left;background:white;color:var(--ink);transition:transform .15s,border-color .15s,background .15s}.answer:hover:not(:disabled){transform:translateX(3px);border-color:#8baef8;background:#f5f8ff}.answer:disabled{cursor:default}.answer.correct{border-color:#38b995;background:#e9fbf4}.answer.wrong{border-color:#ff8b9a;background:#fff0f2}.feedback{min-height:46px;margin:11px 0 0;font-size:.9rem;font-weight:700}.quiz-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.btn{border:0;border-radius:12px;padding:11px 15px;font-weight:850}.primary{background:linear-gradient(120deg,#477df5,#835df2);color:white;box-shadow:0 7px 15px #5478e633}.secondary{background:#edf2fb;color:#354769}.btn:disabled{opacity:.45;cursor:not-allowed}.side-art{background:linear-gradient(145deg,#101b46,#263d83);color:white;border-radius:18px;padding:15px;margin-bottom:14px;overflow:hidden}.side-art svg{display:block;width:100%;height:auto}.side-art p{font-size:.8rem;color:#cbdcff;margin:5px 0 0}.hotspot{cursor:pointer;transform-box:fill-box;transform-origin:center;transition:transform .22s}.hotspot:hover,.hotspot:focus{transform:translateY(-5px) scale(1.05)}.tip{color:#d9e9ff;font-size:.8rem;min-height:40px;margin-top:9px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}.stat{background:#f7f9fe;border:1px solid #e3eaf6;border-radius:14px;padding:12px}.stat span{display:block;color:var(--muted);font-size:.76rem}.stat strong{display:block;font-size:1.5rem;letter-spacing:-.04em;margin-top:2px}.learned{margin-top:12px;background:#e9fbf5;border:1px solid #c8f1e3;padding:13px;border-radius:14px}.learned strong{font-size:.9rem}.learned p{font-size:.83rem;color:#426b63;margin:5px 0 0}.share-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.status{font-size:.8rem;color:#536482;min-height:1.3em;margin:8px 0 0}.notice-modal{position:fixed;inset:0;z-index:20;background:#07132ad9;display:grid;place-items:center;padding:16px;backdrop-filter:blur(5px)}.notice-modal[hidden]{display:none}.modal-card{background:white;border-radius:22px;padding:24px;max-width:510px;width:100%;box-shadow:0 30px 90px #0006}.modal-card h2{margin:0 0 7px}.modal-card p,.modal-card li{color:#586782;font-size:.9rem}.modal-card li{margin:5px 0}.ack{display:flex;gap:10px;padding:12px;background:#f2f6fc;border-radius:12px;font-size:.85rem;margin:15px 0}.ack input{margin-top:4px}footer{background:#0c1639;color:#c6d8f5;padding:24px 0;font-size:.85rem}footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.hero-art{max-width:600px}.lab-layout{grid-template-columns:1fr}.side-column{display:grid;grid-template-columns:1fr 1fr;gap:12px}.side-art{grid-column:1/-1}.stats{margin-top:0}}
+@media(max-width:560px){.wrap{width:min(100% - 22px,1120px)}.hero{padding-top:28px}.lab-switch{grid-template-columns:1fr}.controls{grid-template-columns:1fr}.panel{padding:15px}.side-column{display:block}.stats{margin-top:12px}.share-buttons{grid-template-columns:1fr}.top{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.art-object:hover,.hotspot:hover{transform:none}}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;notice-modal&quot; id=&quot;notice&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;notice-title&quot;&gt;
+ &lt;div class=&quot;modal-card&quot;&gt;&lt;span class=&quot;eyebrow&quot;&gt;A quick safety note&lt;/span&gt;&lt;h2 id=&quot;notice-title&quot;&gt;Welcome to StudyLoop Mini-Labs&lt;/h2&gt;&lt;p&gt;This is a learning prototype. You do not need to provide personal details to use it.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Never enter passwords, OTPs, phone numbers, student IDs, or private information.&lt;/li&gt;&lt;li&gt;Questions are practice material; check important topics against your syllabus and trusted textbooks.&lt;/li&gt;&lt;li&gt;Your session dashboard is for practice. It is not an official grade record.&lt;/li&gt;&lt;/ul&gt;&lt;label class=&quot;ack&quot;&gt;&lt;input type=&quot;checkbox&quot; id=&quot;ack&quot;&gt;&lt;span&gt;I understand this is a practice demo and will not enter private information.&lt;/span&gt;&lt;/label&gt;&lt;button class=&quot;btn primary&quot; id=&quot;continue&quot; type=&quot;button&quot;&gt;Continue to Mini-Labs&lt;/button&gt;&lt;p id=&quot;consent-status&quot; class=&quot;status&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;Tick the checkbox to continue.&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;header&gt;&lt;div class=&quot;wrap&quot;&gt;
+ &lt;div class=&quot;top&quot;&gt;&lt;div class=&quot;brand&quot;&gt;&lt;span class=&quot;logo&quot;&gt;S&lt;/span&gt;StudyLoop &lt;span class=&quot;pill&quot;&gt;MINI-LABS&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;pill&quot;&gt;SCHOOL + COLLEGE&lt;/span&gt;&lt;/div&gt;
+ &lt;div class=&quot;hero&quot;&gt;&lt;div&gt;&lt;span class=&quot;eyebrow&quot;&gt;Learn · Practise · Discover&lt;/span&gt;&lt;h1&gt;One learning space.&lt;br&gt;Two learning paths.&lt;/h1&gt;&lt;p&gt;Choose a school or college mini-lab, explore subject topics, answer a fresh set of questions, and share a clear summary of what you learned.&lt;/p&gt;&lt;div class=&quot;security&quot;&gt;&lt;span aria-hidden=&quot;true&quot;&gt;🔐&lt;/span&gt;&lt;div&gt;&lt;b&gt;Privacy reminder&lt;/b&gt;&lt;p&gt;No sign-in needed. Never enter sensitive personal information. Quiz scores are a practice aid, not an official assessment.&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+ &lt;div class=&quot;hero-art&quot;&gt;&lt;svg viewBox=&quot;0 0 500 270&quot; role=&quot;img&quot; aria-label=&quot;Colourful 3D-style books, a glowing light bulb, a learning planet and a rising progress chart&quot;&gt;
+ &lt;defs&gt;&lt;linearGradient id=&quot;bg&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;1&quot; y2=&quot;1&quot;&gt;&lt;stop stop-color=&quot;#172c68&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#342064&quot;/&gt;&lt;/linearGradient&gt;&lt;linearGradient id=&quot;book&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;1&quot; y2=&quot;1&quot;&gt;&lt;stop stop-color=&quot;#8ff5ff&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#438bff&quot;/&gt;&lt;/linearGradient&gt;&lt;linearGradient id=&quot;pink&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;1&quot; y2=&quot;1&quot;&gt;&lt;stop stop-color=&quot;#ffb4e1&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#ff4b9d&quot;/&gt;&lt;/linearGradient&gt;&lt;linearGradient id=&quot;gold&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;1&quot; y2=&quot;1&quot;&gt;&lt;stop stop-color=&quot;#fff6a2&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#ffab35&quot;/&gt;&lt;/linearGradient&gt;&lt;linearGradient id=&quot;purple&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;1&quot; y2=&quot;1&quot;&gt;&lt;stop stop-color=&quot;#c7a5ff&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#7149e9&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;
+ &lt;rect width=&quot;500&quot; height=&quot;270&quot; rx=&quot;18&quot; fill=&quot;url(#bg)&quot;/&gt;&lt;g opacity=&quot;.16&quot; stroke=&quot;#a6d6ff&quot;&gt;&lt;path d=&quot;M15 50H485M15 100H485M15 150H485M15 200H485M50 10V260M100 10V260M150 10V260M200 10V260M250 10V260M300 10V260M350 10V260M400 10V260M450 10V260&quot;/&gt;&lt;/g&gt;
+ &lt;g class=&quot;art-object&quot; tabindex=&quot;0&quot; role=&quot;button&quot; aria-label=&quot;Idea bulb: click for an idea tip&quot; data-tip=&quot;idea&quot;&gt;&lt;path d=&quot;M345 66a28 28 0 1 1 44 23c-5 5-7 11-7 15h-24c0-5-2-10-7-15a28 28 0 0 1-6-23&quot; fill=&quot;url(#gold)&quot; stroke=&quot;#fff1ac&quot; stroke-width=&quot;2&quot;/&gt;&lt;path d=&quot;M358 107h19m-16 7h13m-10 7h7&quot; stroke=&quot;#ffbd4a&quot; stroke-width=&quot;4&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;path d=&quot;M367 27v-9m-29 19-7-7m65 7 7-7m-73 34h-9m89 0h9&quot; stroke=&quot;#fff1a1&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot;/&gt;&lt;/g&gt;
+ &lt;g class=&quot;art-object&quot; tabindex=&quot;0&quot; role=&quot;button&quot; aria-label=&quot;Books: click for a study tip&quot; data-tip=&quot;book&quot;&gt;&lt;path d=&quot;M48 155l98-27 76 28-99 32z&quot; fill=&quot;url(#pink)&quot;/&gt;&lt;path d=&quot;M48 155v19l75 34v-20z&quot; fill=&quot;#bd347d&quot;/&gt;&lt;path d=&quot;M123 188v20l99-32v-20z&quot; fill=&quot;#8d225f&quot;/&gt;&lt;path d=&quot;M58 155l88-23 58 22-88 27z&quot; fill=&quot;#fff&quot;/&gt;&lt;path d=&quot;M70 155l76-20 43 17-76 22z&quot; fill=&quot;#b9eaff&quot;/&gt;&lt;/g&gt;
+ &lt;g class=&quot;art-object&quot; tabindex=&quot;0&quot; role=&quot;button&quot; aria-label=&quot;Learning planet: click for a practice tip&quot; data-tip=&quot;planet&quot;&gt;&lt;ellipse cx=&quot;303&quot; cy=&quot;177&quot; rx=&quot;52&quot; ry=&quot;15&quot; fill=&quot;none&quot; stroke=&quot;#ff9ed5&quot; stroke-width=&quot;6&quot; transform=&quot;rotate(-20 303 177)&quot;/&gt;&lt;circle cx=&quot;303&quot; cy=&quot;166&quot; r=&quot;34&quot; fill=&quot;url(#purple)&quot;/&gt;&lt;path d=&quot;M282 154q18-15 33 2t-5 26q-17 5-28-10z&quot; fill=&quot;#e0d3ff&quot; opacity=&quot;.75&quot;/&gt;&lt;circle cx=&quot;291&quot; cy=&quot;151&quot; r=&quot;5&quot; fill=&quot;#fff&quot;/&gt;&lt;/g&gt;
+ &lt;g class=&quot;art-object&quot; tabindex=&quot;0&quot; role=&quot;button&quot; aria-label=&quot;Progress chart: click for a review tip&quot; data-tip=&quot;progress&quot;&gt;&lt;path d=&quot;M245 214V170h23v44z&quot; fill=&quot;#54d9c4&quot;/&gt;&lt;path d=&quot;M278 214v-61h23v61z&quot; fill=&quot;#65a9ff&quot;/&gt;&lt;path d=&quot;M311 214v-83h23v83z&quot; fill=&quot;#ff80c4&quot;/&gt;&lt;path d=&quot;M344 214V117h23v97z&quot; fill=&quot;#ffd06c&quot;/&gt;&lt;path d=&quot;M243 115l8-15 8 12 15 2-11 10 3 15-14-7-13 7 3-15-10-9z&quot; fill=&quot;#ffe27b&quot; stroke=&quot;#f2ad38&quot; stroke-width=&quot;2&quot;/&gt;&lt;/g&gt;
+ &lt;g fill=&quot;#d9eaff&quot; font-size=&quot;10&quot; font-weight=&quot;800&quot; text-anchor=&quot;middle&quot;&gt;&lt;text x=&quot;123&quot; y=&quot;232&quot;&gt;READ&lt;/text&gt;&lt;text x=&quot;303&quot; y=&quot;232&quot;&gt;PRACTISE&lt;/text&gt;&lt;text x=&quot;367&quot; y=&quot;246&quot;&gt;GROW&lt;/text&gt;&lt;/g&gt;&lt;/svg&gt;&lt;div class=&quot;art-caption&quot; id=&quot;hero-tip&quot; aria-live=&quot;polite&quot;&gt;✦ Tap an object for a learning tip.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/header&gt;
+&lt;main class=&quot;wrap&quot;&gt;
+ &lt;div class=&quot;section-title&quot;&gt;&lt;span class=&quot;eyebrow&quot;&gt;Choose your path&lt;/span&gt;&lt;h2&gt;Separate mini-labs for school and college&lt;/h2&gt;&lt;p&gt;Topics and question difficulty change with your selected learning path.&lt;/p&gt;&lt;/div&gt;
+ &lt;div class=&quot;lab-switch&quot; role=&quot;group&quot; aria-label=&quot;Choose learner level&quot;&gt;
+  &lt;button class=&quot;level-btn&quot; data-level=&quot;school&quot; aria-pressed=&quot;true&quot;&gt;&lt;span class=&quot;level-emoji&quot;&gt;🎒&lt;/span&gt;&lt;span&gt;&lt;strong&gt;School Student Mini-Lab&lt;/strong&gt;&lt;small&gt;Foundations, core subjects and everyday science&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+  &lt;button class=&quot;level-btn&quot; data-level=&quot;college&quot; aria-pressed=&quot;false&quot;&gt;&lt;span class=&quot;level-emoji&quot;&gt;🎓&lt;/span&gt;&lt;span&gt;&lt;strong&gt;College Student Mini-Lab&lt;/strong&gt;&lt;small&gt;Concepts, technical topics and applied problem-solving&lt;/small&gt;&lt;/span&gt;&lt;/button&gt;
+ &lt;/div&gt;
+ &lt;div class=&quot;lab-layout&quot;&gt;
+  &lt;section class=&quot;panel&quot; aria-labelledby=&quot;lab-title&quot;&gt;&lt;h3 id=&quot;lab-title&quot;&gt;🎯 School learning lab&lt;/h3&gt;&lt;p class=&quot;muted&quot; id=&quot;lab-description&quot;&gt;Build strong foundations with short lessons and practice questions.&lt;/p&gt;
+   &lt;div class=&quot;controls&quot;&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;subject&quot;&gt;Subject area&lt;/label&gt;&lt;select id=&quot;subject&quot;&gt;&lt;/select&gt;&lt;/div&gt;&lt;div class=&quot;field&quot;&gt;&lt;label for=&quot;topic&quot;&gt;Topic&lt;/label&gt;&lt;select id=&quot;topic&quot;&gt;&lt;/select&gt;&lt;/div&gt;&lt;/div&gt;
+   &lt;div class=&quot;topic-chips&quot; id=&quot;topic-chips&quot; aria-label=&quot;Quick topic choices&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;lesson&quot;&gt;&lt;h4 id=&quot;lesson-title&quot;&gt;Loading lesson…&lt;/h4&gt;&lt;p id=&quot;lesson-copy&quot;&gt;&lt;/p&gt;&lt;div class=&quot;example&quot; id=&quot;lesson-example&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+   &lt;div class=&quot;quiz-top&quot;&gt;&lt;span class=&quot;counter&quot; id=&quot;question-count&quot;&gt;Question 1 of 5&lt;/span&gt;&lt;span class=&quot;counter&quot; id=&quot;score-count&quot;&gt;Score: 0&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;progress&quot; aria-label=&quot;Quiz progress&quot;&gt;&lt;div id=&quot;progress-fill&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+   &lt;div class=&quot;question&quot; id=&quot;question&quot;&gt;Loading a fresh question…&lt;/div&gt;&lt;div class=&quot;answers&quot; id=&quot;answers&quot;&gt;&lt;/div&gt;&lt;p class=&quot;feedback&quot; id=&quot;feedback&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;
+   &lt;div class=&quot;quiz-actions&quot;&gt;&lt;button class=&quot;btn primary&quot; id=&quot;next&quot; disabled&gt;Next question →&lt;/button&gt;&lt;button class=&quot;btn secondary&quot; id=&quot;new-round&quot;&gt;↻ New question set&lt;/button&gt;&lt;/div&gt;
+  &lt;/section&gt;
+  &lt;aside class=&quot;side-column&quot;&gt;
+   &lt;div class=&quot;side-art&quot;&gt;&lt;svg viewBox=&quot;0 0 300 180&quot; role=&quot;img&quot; aria-label=&quot;Interactive colourful atom and molecule artwork&quot;&gt;
+    &lt;defs&gt;&lt;linearGradient id=&quot;atom&quot; x1=&quot;0&quot; x2=&quot;1&quot;&gt;&lt;stop stop-color=&quot;#60f0db&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#5596ff&quot;/&gt;&lt;/linearGradient&gt;&lt;linearGradient id=&quot;orb&quot; x1=&quot;0&quot; x2=&quot;1&quot;&gt;&lt;stop stop-color=&quot;#ffb6e5&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#a58aff&quot;/&gt;&lt;/linearGradient&gt;&lt;/defs&gt;
+    &lt;g class=&quot;hotspot&quot; tabindex=&quot;0&quot; role=&quot;button&quot; aria-label=&quot;Atom tip&quot; data-tip=&quot;atom&quot;&gt;&lt;ellipse cx=&quot;145&quot; cy=&quot;86&quot; rx=&quot;82&quot; ry=&quot;29&quot; fill=&quot;none&quot; stroke=&quot;url(#atom)&quot; stroke-width=&quot;4&quot; transform=&quot;rotate(30 145 86)&quot;/&gt;&lt;ellipse cx=&quot;145&quot; cy=&quot;86&quot; rx=&quot;82&quot; ry=&quot;29&quot; fill=&quot;none&quot; stroke=&quot;#ff77bd&quot; stroke-width=&quot;4&quot; transform=&quot;rotate(-30 145 86)&quot;/&gt;&lt;ellipse cx=&quot;145&quot; cy=&quot;86&quot; rx=&quot;82&quot; ry=&quot;29&quot; fill=&quot;none&quot; stroke=&quot;#a98aff&quot; stroke-width=&quot;4&quot;/&gt;&lt;circle cx=&quot;145&quot; cy=&quot;86&quot; r=&quot;18&quot; fill=&quot;url(#orb)&quot;/&gt;&lt;circle cx=&quot;212&quot; cy=&quot;56&quot; r=&quot;8&quot; fill=&quot;#fff4a3&quot;/&gt;&lt;circle cx=&quot;91&quot; cy=&quot;53&quot; r=&quot;7&quot; fill=&quot;#61efcf&quot;/&gt;&lt;/g&gt;
+    &lt;g fill=&quot;#fff&quot; opacity=&quot;.75&quot;&gt;&lt;circle cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;2&quot;/&gt;&lt;circle cx=&quot;265&quot; cy=&quot;40&quot; r=&quot;3&quot;/&gt;&lt;circle cx=&quot;45&quot; cy=&quot;145&quot; r=&quot;2&quot;/&gt;&lt;circle cx=&quot;251&quot; cy=&quot;143&quot; r=&quot;2&quot;/&gt;&lt;/g&gt;&lt;/svg&gt;&lt;p&gt;✦ Interactive science-inspired artwork&lt;/p&gt;&lt;div class=&quot;tip&quot; id=&quot;side-tip&quot; aria-live=&quot;polite&quot;&gt;Tap the atom to explore a tip.&lt;/div&gt;&lt;/div&gt;
+   &lt;div class=&quot;panel&quot;&gt;&lt;h3&gt;📊 My learning dashboard&lt;/h3&gt;&lt;p class=&quot;muted&quot; style=&quot;font-size:.83rem&quot;&gt;Stats for the current topic and round.&lt;/p&gt;&lt;div class=&quot;stats&quot;&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Answered&lt;/span&gt;&lt;strong id=&quot;stat-answered&quot;&gt;0&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Correct&lt;/span&gt;&lt;strong id=&quot;stat-correct&quot;&gt;0&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Accuracy&lt;/span&gt;&lt;strong id=&quot;stat-accuracy&quot;&gt;—&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;stat&quot;&gt;&lt;span&gt;Perfect rounds&lt;/span&gt;&lt;strong id=&quot;stat-perfect&quot;&gt;0&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;learned&quot;&gt;&lt;strong&gt;🧠 What I learned&lt;/strong&gt;&lt;p id=&quot;learned&quot;&gt;Answer questions to build your learning summary.&lt;/p&gt;&lt;/div&gt;&lt;div class=&quot;share-buttons&quot;&gt;&lt;button class=&quot;btn primary&quot; id=&quot;share&quot;&gt;↗ Share score&lt;/button&gt;&lt;button class=&quot;btn secondary&quot; id=&quot;copy&quot;&gt;Copy summary&lt;/button&gt;&lt;/div&gt;&lt;p class=&quot;status&quot; id=&quot;share-status&quot; aria-live=&quot;polite&quot;&gt;&lt;/p&gt;&lt;/div&gt;
+  &lt;/aside&gt;
+ &lt;/div&gt;
+&lt;/main&gt;
+&lt;footer&gt;&lt;div class=&quot;wrap&quot;&gt;&lt;span&gt;&lt;strong&gt;StudyLoop Mini-Labs&lt;/strong&gt; · A self-study concept prototype&lt;/span&gt;&lt;span&gt;Practise thoughtfully. Check important facts with trusted learning sources.&lt;/span&gt;&lt;/div&gt;&lt;/footer&gt;
+&lt;script&gt;
+(()=&gt;{
+&#x27;use strict&#x27;;
+const Q=(q,opts,why)=&gt;({q,opts,why});
+const bank={
+school:{
+ Science:{
+  &#x27;Life Science&#x27;:{lesson:&#x27;Life Science: living things&#x27;,copy:&#x27;Living things carry out life processes such as growth, nutrition, respiration and reproduction.&#x27;,example:&#x27;Think about how plants and animals obtain energy in different ways.&#x27;,qs:[
+ Q(&#x27;Which organ pumps blood around the human body?&#x27;,[&#x27;Lungs&#x27;,&#x27;Heart&#x27;,&#x27;Stomach&#x27;,&#x27;Kidney&#x27;], &#x27;The heart pumps blood through the circulatory system.&#x27;),
+ Q(&#x27;Which part of a plant absorbs most water from soil?&#x27;,[&#x27;Flower&#x27;,&#x27;Root hairs&#x27;,&#x27;Petals&#x27;,&#x27;Fruit&#x27;],&#x27;Root hairs increase the surface area for water absorption.&#x27;),
+ Q(&#x27;Which gas do humans need for aerobic respiration?&#x27;,[&#x27;Oxygen&#x27;,&#x27;Helium&#x27;,&#x27;Hydrogen&#x27;,&#x27;Neon&#x27;],&#x27;Cells use oxygen to release energy from food during aerobic respiration.&#x27;),
+ Q(&#x27;What is the basic structural unit of living organisms?&#x27;,[&#x27;Atom&#x27;,&#x27;Cell&#x27;,&#x27;Organ&#x27;,&#x27;Tissue&#x27;],&#x27;Cells are the basic units of life.&#x27;),
+ Q(&#x27;Which nutrient is a major source of energy?&#x27;,[&#x27;Carbohydrates&#x27;,&#x27;Water only&#x27;,&#x27;Minerals only&#x27;,&#x27;Fibre only&#x27;],&#x27;Carbohydrates are broken down to provide energy.&#x27;),
+ Q(&#x27;Which organism makes its own food using sunlight?&#x27;,[&#x27;Green plant&#x27;,&#x27;Tiger&#x27;,&#x27;Mushroom&#x27;,&#x27;Earthworm&#x27;],&#x27;Green plants can photosynthesise using light energy.&#x27;)]},
+  &#x27;Matter &amp; Materials&#x27;:{lesson:&#x27;Matter and materials&#x27;,copy:&#x27;Matter has mass and occupies space. It commonly exists as solid, liquid and gas.&#x27;,example:&#x27;Heating and cooling can change a material from one state to another.&#x27;,qs:[
+ Q(&#x27;Which state has a fixed volume but takes the shape of its container?&#x27;,[&#x27;Solid&#x27;,&#x27;Liquid&#x27;,&#x27;Gas&#x27;,&#x27;Vacuum&#x27;],&#x27;A liquid has a fixed volume but changes shape to fit its container.&#x27;),
+ Q(&#x27;What is water vapour?&#x27;,[&#x27;Solid water&#x27;,&#x27;Gaseous water&#x27;,&#x27;Liquid metal&#x27;,&#x27;A kind of soil&#x27;],&#x27;Water vapour is water in its gaseous state.&#x27;),
+ Q(&#x27;Which is usually a reversible physical change?&#x27;,[&#x27;Ice melting&#x27;,&#x27;Wood burning&#x27;,&#x27;Iron rusting&#x27;,&#x27;Food digesting&#x27;],&#x27;Melting changes state without creating a new substance.&#x27;),
+ Q(&#x27;What tool measures temperature?&#x27;,[&#x27;Thermometer&#x27;,&#x27;Ruler&#x27;,&#x27;Compass&#x27;,&#x27;Stopwatch&#x27;],&#x27;A thermometer measures temperature.&#x27;),
+ Q(&#x27;Which material is usually a good electrical conductor?&#x27;,[&#x27;Copper&#x27;,&#x27;Rubber&#x27;,&#x27;Dry wood&#x27;,&#x27;Plastic&#x27;],&#x27;Copper has mobile electrons that conduct electric current.&#x27;),
+ Q(&#x27;What happens to most substances when heated?&#x27;,[&#x27;They expand&#x27;,&#x27;They vanish&#x27;,&#x27;Their mass becomes zero&#x27;,&#x27;They stop moving&#x27;],&#x27;Many substances expand as temperature rises.&#x27;)]},
+  &#x27;Earth &amp; Space&#x27;:{lesson:&#x27;Earth and space&#x27;,copy:&#x27;Earth rotates on its axis and orbits the Sun. The Moon reflects sunlight.&#x27;,example:&#x27;Rotation causes day and night; Earth’s orbit takes about one year.&#x27;,qs:[
+ Q(&#x27;What causes day and night?&#x27;,[&#x27;Earth rotating&#x27;,&#x27;The Moon disappearing&#x27;,&#x27;Clouds moving&#x27;,&#x27;The Sun orbiting Earth each day&#x27;],&#x27;Different sides of Earth face the Sun as Earth rotates.&#x27;),
+ Q(&#x27;Which star is closest to Earth?&#x27;,[&#x27;Sirius&#x27;,&#x27;The Sun&#x27;,&#x27;Polaris&#x27;,&#x27;Vega&#x27;],&#x27;The Sun is the star at the centre of our solar system.&#x27;),
+ Q(&#x27;What is Earth’s natural satellite?&#x27;,[&#x27;Mars&#x27;,&#x27;The Moon&#x27;,&#x27;Venus&#x27;,&#x27;The Sun&#x27;],&#x27;The Moon orbits Earth.&#x27;),
+ Q(&#x27;Which planet is known for its prominent rings?&#x27;,[&#x27;Saturn&#x27;,&#x27;Mercury&#x27;,&#x27;Earth&#x27;,&#x27;Mars&#x27;],&#x27;Saturn has a large, bright ring system.&#x27;),
+ Q(&#x27;What force keeps planets in orbit around the Sun?&#x27;,[&#x27;Gravity&#x27;,&#x27;Friction only&#x27;,&#x27;Magnetism only&#x27;,&#x27;Sound&#x27;],&#x27;Gravity provides the attraction that keeps planets in orbit.&#x27;),
+ Q(&#x27;About how long does Earth take to orbit the Sun?&#x27;,[&#x27;One day&#x27;,&#x27;One month&#x27;,&#x27;One year&#x27;,&#x27;Ten years&#x27;],&#x27;One orbit takes about 365.25 days.&#x27;)]},
+  &#x27;Energy &amp; Forces&#x27;:{lesson:&#x27;Energy and forces&#x27;,copy:&#x27;Forces can change an object’s motion or shape. Energy can transfer between forms.&#x27;,example:&#x27;A stretched spring stores elastic potential energy.&#x27;,qs:[
+ Q(&#x27;What force pulls objects toward Earth?&#x27;,[&#x27;Gravity&#x27;,&#x27;Friction&#x27;,&#x27;Buoyancy only&#x27;,&#x27;Tension only&#x27;],&#x27;Gravity attracts objects with mass toward Earth.&#x27;),
+ Q(&#x27;Which unit measures force?&#x27;,[&#x27;Newton&#x27;,&#x27;Watt&#x27;,&#x27;Metre&#x27;,&#x27;Litre&#x27;],&#x27;Force is measured in newtons (N).&#x27;),
+ Q(&#x27;Which is a renewable energy source?&#x27;,[&#x27;Wind&#x27;,&#x27;Coal&#x27;,&#x27;Petrol&#x27;,&#x27;Natural gas&#x27;],&#x27;Wind is naturally replenished.&#x27;),
+ Q(&#x27;What does friction usually oppose?&#x27;,[&#x27;Relative motion&#x27;,&#x27;Colour&#x27;,&#x27;Mass&#x27;,&#x27;Temperature only&#x27;],&#x27;Friction opposes relative movement between surfaces.&#x27;),
+ Q(&#x27;Which simple machine is a ramp?&#x27;,[&#x27;Inclined plane&#x27;,&#x27;Pulley only&#x27;,&#x27;Wheel axle only&#x27;,&#x27;Screwdriver&#x27;],&#x27;A ramp is an inclined plane.&#x27;),
+ Q(&#x27;Energy of a moving object is called what?&#x27;,[&#x27;Kinetic energy&#x27;,&#x27;Chemical energy only&#x27;,&#x27;Soundless energy&#x27;,&#x27;Nuclear mass&#x27;],&#x27;Kinetic energy is energy due to motion.&#x27;)]}
+ },
+ Mathematics:{
+  &#x27;Arithmetic &amp; Fractions&#x27;:{lesson:&#x27;Arithmetic and fractions&#x27;,copy:&#x27;Numbers describe quantities. Fractions represent equal parts of a whole.&#x27;,example:&#x27;To add fractions with the same denominator, add the numerators.&#x27;,qs:[
+ Q(&#x27;What is 36 ÷ 4?&#x27;,[&#x27;8&#x27;,&#x27;9&#x27;,&#x27;10&#x27;,&#x27;12&#x27;],&#x27;36 divided by 4 equals 9.&#x27;),
+ Q(&#x27;What is 3/8 + 2/8?&#x27;,[&#x27;5/8&#x27;,&#x27;5/16&#x27;,&#x27;1/8&#x27;,&#x27;6/8&#x27;],&#x27;With the same denominator, add 3 and 2 to get 5/8.&#x27;),
+ Q(&#x27;What is 25% of 80?&#x27;,[&#x27;10&#x27;,&#x27;15&#x27;,&#x27;20&#x27;,&#x27;25&#x27;],&#x27;25% is one quarter; one quarter of 80 is 20.&#x27;),
+ Q(&#x27;Which number is prime?&#x27;,[&#x27;21&#x27;,&#x27;27&#x27;,&#x27;29&#x27;,&#x27;33&#x27;],&#x27;29 has exactly two positive factors: 1 and 29.&#x27;),
+ Q(&#x27;What is the perimeter of a square with side 5 cm?&#x27;,[&#x27;10 cm&#x27;,&#x27;15 cm&#x27;,&#x27;20 cm&#x27;,&#x27;25 cm&#x27;],&#x27;Perimeter is four times the side length: 4 × 5 = 20 cm.&#x27;),
+ Q(&#x27;Simplify the ratio 6:9.&#x27;,[&#x27;2:3&#x27;,&#x27;3:2&#x27;,&#x27;6:3&#x27;,&#x27;1:3&#x27;],&#x27;Divide both terms by their greatest common divisor, 3.&#x27;)]},
+  &#x27;Algebra &amp; Patterns&#x27;:{lesson:&#x27;Algebra and patterns&#x27;,copy:&#x27;Algebra uses symbols to represent numbers and relationships.&#x27;,example:&#x27;If x + 4 = 10, subtract 4 from both sides to find x = 6.&#x27;,qs:[
+ Q(&#x27;If x + 7 = 12, what is x?&#x27;,[&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;,&#x27;19&#x27;],&#x27;Subtract 7 from both sides: x = 5.&#x27;),
+ Q(&#x27;What comes next: 3, 6, 9, 12, …?&#x27;,[&#x27;13&#x27;,&#x27;14&#x27;,&#x27;15&#x27;,&#x27;18&#x27;],&#x27;The pattern adds 3 each time, so the next term is 15.&#x27;),
+ Q(&#x27;Simplify 4a + 2a.&#x27;,[&#x27;6a&#x27;,&#x27;6a²&#x27;,&#x27;8a&#x27;,&#x27;2a&#x27;],&#x27;Like terms combine by adding coefficients: 4a + 2a = 6a.&#x27;),
+ Q(&#x27;What is 5²?&#x27;,[&#x27;10&#x27;,&#x27;15&#x27;,&#x27;20&#x27;,&#x27;25&#x27;],&#x27;5 squared means 5 × 5 = 25.&#x27;),
+ Q(&#x27;If y = 3, what is 2y + 1?&#x27;,[&#x27;5&#x27;,&#x27;6&#x27;,&#x27;7&#x27;,&#x27;8&#x27;],&#x27;Substitute y = 3: 2 × 3 + 1 = 7.&#x27;),
+ Q(&#x27;Which expression means “n decreased by 8”?&#x27;,[&#x27;8 − n&#x27;,&#x27;n + 8&#x27;,&#x27;n − 8&#x27;,&#x27;8n&#x27;],&#x27;Decreased by 8 means subtract 8 from n.&#x27;)]},
+  &#x27;Geometry &amp; Measurement&#x27;:{lesson:&#x27;Geometry and measurement&#x27;,copy:&#x27;Geometry explores shapes, angles, lengths, areas and spatial relationships.&#x27;,example:&#x27;Area measures surface; perimeter measures the boundary length.&#x27;,qs:[
+ Q(&#x27;How many degrees are in a right angle?&#x27;,[&#x27;45°&#x27;,&#x27;90°&#x27;,&#x27;180°&#x27;,&#x27;360°&#x27;],&#x27;A right angle measures 90 degrees.&#x27;),
+ Q(&#x27;Area of a rectangle 7 cm by 3 cm?&#x27;,[&#x27;10 cm²&#x27;,&#x27;20 cm²&#x27;,&#x27;21 cm²&#x27;,&#x27;24 cm²&#x27;],&#x27;Area = length × width = 7 × 3 = 21 cm².&#x27;),
+ Q(&#x27;How many sides does a hexagon have?&#x27;,[&#x27;5&#x27;,&#x27;6&#x27;,&#x27;7&#x27;,&#x27;8&#x27;],&#x27;A hexagon has six sides.&#x27;),
+ Q(&#x27;How many degrees are in a triangle’s interior angles altogether?&#x27;,[&#x27;90°&#x27;,&#x27;180°&#x27;,&#x27;270°&#x27;,&#x27;360°&#x27;],&#x27;The interior angles of a Euclidean triangle sum to 180 degrees.&#x27;),
+ Q(&#x27;What unit is suitable for the length of a classroom?&#x27;,[&#x27;Kilometres&#x27;,&#x27;Metres&#x27;,&#x27;Milligrams&#x27;,&#x27;Litres&#x27;],&#x27;Metres are practical for room dimensions.&#x27;),
+ Q(&#x27;What is the perimeter of a 4 cm by 6 cm rectangle?&#x27;,[&#x27;10 cm&#x27;,&#x27;20 cm&#x27;,&#x27;24 cm&#x27;,&#x27;30 cm&#x27;],&#x27;Perimeter = 2 × (4 + 6) = 20 cm.&#x27;)]},
+  &#x27;Data &amp; Probability&#x27;:{lesson:&#x27;Data and probability&#x27;,copy:&#x27;Data can be organised and summarised. Probability describes how likely an event is.&#x27;,example:&#x27;A fair coin has a 1/2 probability of landing heads.&#x27;,qs:[
+ Q(&#x27;What is the mean of 2, 4 and 6?&#x27;,[&#x27;3&#x27;,&#x27;4&#x27;,&#x27;5&#x27;,&#x27;6&#x27;],&#x27;Mean = (2 + 4 + 6) ÷ 3 = 4.&#x27;),
+ Q(&#x27;A fair coin is flipped. Probability of heads?&#x27;,[&#x27;0&#x27;,&#x27;1/4&#x27;,&#x27;1/2&#x27;,&#x27;1&#x27;],&#x27;There are two equally likely outcomes, so heads has probability 1/2.&#x27;),
+ Q(&#x27;Which graph is often useful for comparing categories?&#x27;,[&#x27;Bar chart&#x27;,&#x27;Only a map&#x27;,&#x27;Circuit diagram&#x27;,&#x27;Flowchart only&#x27;],&#x27;Bar charts make category comparisons easy to see.&#x27;),
+ Q(&#x27;What is the median of 3, 9, 5?&#x27;,[&#x27;3&#x27;,&#x27;5&#x27;,&#x27;9&#x27;,&#x27;17&#x27;],&#x27;Order the values 3, 5, 9; the middle value is 5.&#x27;),
+ Q(&#x27;A bag has 3 red and 1 blue ball. Chance of red?&#x27;,[&#x27;1/4&#x27;,&#x27;1/3&#x27;,&#x27;3/4&#x27;,&#x27;1&#x27;],&#x27;Three of the four equally likely balls are red, so probability is 3/4.&#x27;),
+ Q(&#x27;Which value is an outlier in 4, 5, 5, 6, 40?&#x27;,[&#x27;4&#x27;,&#x27;5&#x27;,&#x27;6&#x27;,&#x27;40&#x27;],&#x27;40 is far from the cluster of values near 4–6.&#x27;)]},
+ },
+ English:{
+  &#x27;Grammar &amp; Vocabulary&#x27;:{lesson:&#x27;Grammar and vocabulary&#x27;,copy:&#x27;Grammar helps organise words into clear sentences. Vocabulary gives you precise ways to express ideas.&#x27;,example:&#x27;A complete sentence normally communicates a complete thought.&#x27;,qs:[
+ Q(&#x27;Which word is a verb in “Birds fly high”?&#x27;,[&#x27;Birds&#x27;,&#x27;fly&#x27;,&#x27;high&#x27;,&#x27;the&#x27;],&#x27;“Fly” expresses the action.&#x27;),
+ Q(&#x27;Choose the plural of “child”.&#x27;,[&#x27;Childs&#x27;,&#x27;Childes&#x27;,&#x27;Children&#x27;,&#x27;Childrens&#x27;],&#x27;The standard plural form is children.&#x27;),
+ Q(&#x27;Which word is an adjective in “a bright star”?&#x27;,[&#x27;a&#x27;,&#x27;bright&#x27;,&#x27;star&#x27;,&#x27;is&#x27;],&#x27;“Bright” describes the noun star.&#x27;),
+ Q(&#x27;Choose the correct sentence.&#x27;,[&#x27;She go to school.&#x27;,&#x27;She goes to school.&#x27;,&#x27;She going school.&#x27;,&#x27;She gone school.&#x27;],&#x27;With “she” in the simple present, use “goes”.&#x27;),
+ Q(&#x27;What is a synonym for “rapid”?&#x27;,[&#x27;Slow&#x27;,&#x27;Quick&#x27;,&#x27;Quiet&#x27;,&#x27;Tiny&#x27;],&#x27;Rapid means fast or quick.&#x27;),
+ Q(&#x27;Which punctuation ends a direct question?&#x27;,[&#x27;Comma&#x27;,&#x27;Full stop&#x27;,&#x27;Question mark&#x27;,&#x27;Colon&#x27;],&#x27;A question mark normally ends a direct question.&#x27;)]},
+  &#x27;Reading &amp; Writing&#x27;:{lesson:&#x27;Reading and writing&#x27;,copy:&#x27;Reading for meaning involves identifying the main idea, evidence and the writer’s purpose.&#x27;,example:&#x27;Summarise a passage by keeping its key point and removing unnecessary details.&#x27;,qs:[
+ Q(&#x27;What is the main idea of a passage?&#x27;,[&#x27;Its central point&#x27;,&#x27;The longest word&#x27;,&#x27;Only its title&#x27;,&#x27;The last punctuation mark&#x27;],&#x27;The main idea is what the passage is mostly about.&#x27;),
+ Q(&#x27;Which is evidence in an argument?&#x27;,[&#x27;A relevant fact or example&#x27;,&#x27;An unrelated joke&#x27;,&#x27;A guess presented as fact&#x27;,&#x27;A decorative heading&#x27;],&#x27;Evidence supports a claim with relevant information.&#x27;),
+ Q(&#x27;What does “summarise” mean?&#x27;,[&#x27;Copy every word&#x27;,&#x27;State key points briefly&#x27;,&#x27;Add unrelated details&#x27;,&#x27;Change the topic&#x27;],&#x27;A summary presents the main points concisely.&#x27;),
+ Q(&#x27;Which opening is most suitable for a formal email to a teacher?&#x27;,[&#x27;Hey dude&#x27;,&#x27;Dear Professor Rao,&#x27;,&#x27;Yo!&#x27;,&#x27;What’s up lol&#x27;],&#x27;A respectful greeting suits formal communication.&#x27;),
+ Q(&#x27;What should a paragraph usually focus on?&#x27;,[&#x27;One main idea&#x27;,&#x27;Many unrelated topics&#x27;,&#x27;Only punctuation&#x27;,&#x27;No clear point&#x27;],&#x27;A focused paragraph develops one central idea.&#x27;),
+ Q(&#x27;What is proofreading?&#x27;,[&#x27;Checking writing for errors&#x27;,&#x27;Choosing a random title&#x27;,&#x27;Reading only the first word&#x27;,&#x27;Deleting all paragraphs&#x27;],&#x27;Proofreading checks spelling, grammar and punctuation.&#x27;)]}}
+
+ ,
+ &#x27;Social Studies&#x27;:{
+  &#x27;History &amp; Civics&#x27;:{lesson:&#x27;History and civics&#x27;,copy:&#x27;History studies evidence about the past. Civics explores rights, responsibilities and how communities make decisions.&#x27;,example:&#x27;Compare sources and check who created them before accepting a historical claim.&#x27;,qs:[
+ Q(&#x27;What is a primary historical source?&#x27;,[&#x27;A diary written during the event&#x27;,&#x27;A modern textbook summary&#x27;,&#x27;A fictional story set in the past&#x27;,&#x27;An unsourced social media post&#x27;],&#x27;A primary source comes from the time or people being studied.&#x27;),
+ Q(&#x27;Why do communities have laws?&#x27;,[&#x27;To support safety and organise society&#x27;,&#x27;To remove all responsibilities&#x27;,&#x27;To make every person identical&#x27;,&#x27;To prevent people learning&#x27;],&#x27;Laws set shared rules and responsibilities.&#x27;),
+ Q(&#x27;Which branch usually interprets laws in a democracy?&#x27;,[&#x27;Judiciary&#x27;,&#x27;Weather service&#x27;,&#x27;Sports council&#x27;,&#x27;Library club&#x27;],&#x27;Courts and the judiciary interpret laws.&#x27;),
+ Q(&#x27;What does voting allow eligible citizens to do?&#x27;,[&#x27;Choose representatives or decide issues&#x27;,&#x27;Avoid every civic duty&#x27;,&#x27;Replace all courts&#x27;,&#x27;Change the weather&#x27;],&#x27;Voting is one way citizens participate in democratic decisions.&#x27;),
+ Q(&#x27;Why compare more than one historical source?&#x27;,[&#x27;To check perspectives and reliability&#x27;,&#x27;To make research longer without purpose&#x27;,&#x27;To avoid evidence&#x27;,&#x27;To guarantee all sources agree&#x27;],&#x27;Different sources may reveal different perspectives or errors.&#x27;),
+ Q(&#x27;A timeline mainly helps show what?&#x27;,[&#x27;The order of events&#x27;,&#x27;The weight of objects&#x27;,&#x27;The spelling of words&#x27;,&#x27;The temperature of a room&#x27;],&#x27;Timelines organise events chronologically.&#x27;)]} ,
+  &#x27;Geography &amp; Maps&#x27;:{lesson:&#x27;Geography and maps&#x27;,copy:&#x27;Geography studies places, environments and how people interact with them.&#x27;,example:&#x27;A map key explains symbols; a scale relates map distance to real distance.&#x27;,qs:[
+ Q(&#x27;What does a map key explain?&#x27;,[&#x27;Symbols used on the map&#x27;,&#x27;The author’s favourite colour&#x27;,&#x27;Tomorrow’s exact weather&#x27;,&#x27;The age of every building&#x27;],&#x27;A key or legend explains map symbols.&#x27;),
+ Q(&#x27;Which direction is usually at the top of a standard north-up map?&#x27;,[&#x27;North&#x27;,&#x27;South&#x27;,&#x27;East&#x27;,&#x27;West&#x27;],&#x27;Most standard maps place north at the top.&#x27;),
+ Q(&#x27;What does a map scale help calculate?&#x27;,[&#x27;Real distance from map distance&#x27;,&#x27;Population age&#x27;,&#x27;Air temperature only&#x27;,&#x27;A country’s language&#x27;],&#x27;Scale relates measured map distances to real distances.&#x27;),
+ Q(&#x27;Which is a natural feature?&#x27;,[&#x27;Mountain&#x27;,&#x27;Bridge&#x27;,&#x27;Railway station&#x27;,&#x27;School building&#x27;],&#x27;Mountains are natural landforms.&#x27;),
+ Q(&#x27;What is weather?&#x27;,[&#x27;Atmospheric conditions over a short period&#x27;,&#x27;The average climate over centuries only&#x27;,&#x27;The shape of a continent&#x27;,&#x27;The movement of tectonic plates only&#x27;],&#x27;Weather describes short-term atmospheric conditions.&#x27;),
+ Q(&#x27;Which resource is replenished naturally on a human timescale?&#x27;,[&#x27;Sunlight&#x27;,&#x27;Coal&#x27;,&#x27;Petroleum&#x27;,&#x27;Natural gas&#x27;],&#x27;Sunlight is continually supplied by the Sun.&#x27;)]} 
+ },
+ &#x27;Environmental Studies&#x27;:{
+  &#x27;Ecosystems &amp; Conservation&#x27;:{lesson:&#x27;Ecosystems and conservation&#x27;,copy:&#x27;An ecosystem includes living organisms and the non-living environment interacting together.&#x27;,example:&#x27;Plants, insects, birds, soil, water and sunlight can all be part of one ecosystem.&#x27;,qs:[
+ Q(&#x27;What is an ecosystem?&#x27;,[&#x27;Living things interacting with their environment&#x27;,&#x27;Only one animal&#x27;,&#x27;A type of machine&#x27;,&#x27;A collection of plastic objects&#x27;],&#x27;Ecosystems include organisms and their physical surroundings.&#x27;),
+ Q(&#x27;Which action helps reduce waste?&#x27;,[&#x27;Reuse suitable items&#x27;,&#x27;Throw every item away immediately&#x27;,&#x27;Leave taps running&#x27;,&#x27;Burn all rubbish openly&#x27;],&#x27;Reusing suitable items can reduce waste.&#x27;),
+ Q(&#x27;What do decomposers do?&#x27;,[&#x27;Break down dead organic matter&#x27;,&#x27;Make sunlight&#x27;,&#x27;Stop all nutrient cycles&#x27;,&#x27;Turn rocks into plastic&#x27;],&#x27;Decomposers return nutrients to ecosystems.&#x27;),
+ Q(&#x27;Which is a renewable resource?&#x27;,[&#x27;Wind energy&#x27;,&#x27;Coal&#x27;,&#x27;Petrol&#x27;,&#x27;Natural gas&#x27;],&#x27;Wind is replenished naturally.&#x27;),
+ Q(&#x27;Why are trees important in many ecosystems?&#x27;,[&#x27;They provide habitat and absorb carbon dioxide&#x27;,&#x27;They eliminate all rainfall&#x27;,&#x27;They create plastic&#x27;,&#x27;They stop all soil formation&#x27;],&#x27;Trees provide habitat and play roles in carbon and water cycles.&#x27;),
+ Q(&#x27;Which practice can conserve water at home?&#x27;,[&#x27;Fix leaking taps&#x27;,&#x27;Keep taps running while unused&#x27;,&#x27;Wash one item at a time under a running hose&#x27;,&#x27;Ignore leaks&#x27;],&#x27;Repairing leaks prevents unnecessary water loss.&#x27;)]} 
+ },
+ &#x27;Computer Studies&#x27;:{
+  &#x27;Digital Basics &amp; Safety&#x27;:{lesson:&#x27;Digital basics and safety&#x27;,copy:&#x27;Computers process input according to instructions. Safe digital habits help protect accounts and information.&#x27;,example:&#x27;Use unique passwords and never share one-time codes with others.&#x27;,qs:[
+ Q(&#x27;Which device is commonly used to enter text?&#x27;,[&#x27;Keyboard&#x27;,&#x27;Monitor&#x27;,&#x27;Speaker&#x27;,&#x27;Projector&#x27;],&#x27;A keyboard is an input device.&#x27;),
+ Q(&#x27;What is an algorithm?&#x27;,[&#x27;A step-by-step procedure&#x27;,&#x27;A type of screen&#x27;,&#x27;A computer desk&#x27;,&#x27;A power cable&#x27;],&#x27;An algorithm describes steps to solve a problem.&#x27;),
+ Q(&#x27;What should you do with an unexpected request for an OTP?&#x27;,[&#x27;Do not share it&#x27;,&#x27;Send it to the sender&#x27;,&#x27;Post it publicly&#x27;,&#x27;Use it as a username&#x27;],&#x27;One-time codes should remain private.&#x27;),
+ Q(&#x27;Which is an example of an output device?&#x27;,[&#x27;Monitor&#x27;,&#x27;Mouse&#x27;,&#x27;Keyboard&#x27;,&#x27;Microphone&#x27;],&#x27;A monitor displays information from the computer.&#x27;),
+ Q(&#x27;Why install software updates from trusted sources?&#x27;,[&#x27;They can fix bugs and security issues&#x27;,&#x27;They guarantee no risk ever&#x27;,&#x27;They reveal passwords&#x27;,&#x27;They disable all backups&#x27;],&#x27;Updates often include fixes and security improvements.&#x27;),
+ Q(&#x27;What is a strong account habit?&#x27;,[&#x27;Use unique passwords and keep them private&#x27;,&#x27;Reuse one password everywhere&#x27;,&#x27;Share passwords in public chats&#x27;,&#x27;Ignore security warnings&#x27;],&#x27;Unique, private passwords reduce account risks.&#x27;)]} 
+ },
+ &#x27;Art &amp; General Knowledge&#x27;:{
+  &#x27;Creative Thinking &amp; Everyday Knowledge&#x27;:{lesson:&#x27;Creative thinking and general knowledge&#x27;,copy:&#x27;Creative thinking explores several possibilities, checks evidence and improves ideas through feedback.&#x27;,example:&#x27;Sketch, test, gather feedback and revise a design.&#x27;,qs:[
+ Q(&#x27;What is brainstorming mainly used for?&#x27;,[&#x27;Generating possible ideas&#x27;,&#x27;Proving the first idea is always correct&#x27;,&#x27;Avoiding all questions&#x27;,&#x27;Memorising one answer only&#x27;],&#x27;Brainstorming creates a range of possible ideas.&#x27;),
+ Q(&#x27;Which is a useful way to evaluate a claim?&#x27;,[&#x27;Check credible evidence&#x27;,&#x27;Believe it because it is popular&#x27;,&#x27;Ignore its source&#x27;,&#x27;Share it before checking&#x27;],&#x27;Credible evidence helps assess claims.&#x27;),
+ Q(&#x27;What is feedback useful for in a project?&#x27;,[&#x27;Finding ways to improve it&#x27;,&#x27;Guaranteeing perfection immediately&#x27;,&#x27;Replacing all planning&#x27;,&#x27;Avoiding testing&#x27;],&#x27;Feedback can reveal strengths and areas to improve.&#x27;),
+ Q(&#x27;Which shape has three sides?&#x27;,[&#x27;Triangle&#x27;,&#x27;Square&#x27;,&#x27;Pentagon&#x27;,&#x27;Hexagon&#x27;],&#x27;A triangle has three sides.&#x27;),
+ Q(&#x27;What should you do before sharing surprising news online?&#x27;,[&#x27;Verify it with reliable sources&#x27;,&#x27;Forward it instantly&#x27;,&#x27;Remove its source&#x27;,&#x27;Assume every image is genuine&#x27;],&#x27;Checking reliable sources helps reduce misinformation.&#x27;),
+ Q(&#x27;What is a prototype?&#x27;,[&#x27;An early model used to test an idea&#x27;,&#x27;Always the final product&#x27;,&#x27;A type of password&#x27;,&#x27;A finished exam result&#x27;],&#x27;Prototypes help test and improve ideas early.&#x27;)]} 
+ }
+
+},
+college:{
+ Science:{
+  &#x27;Biology &amp; Genetics&#x27;:{lesson:&#x27;Biology and genetics&#x27;,copy:&#x27;Cells use DNA to store inherited instructions. Genes are DNA sequences associated with functional products and traits.&#x27;,example:&#x27;A Punnett square can help predict possible inherited allele combinations.&#x27;,qs:[
+ Q(&#x27;Which molecule stores hereditary information in most organisms?&#x27;,[&#x27;DNA&#x27;,&#x27;Cellulose&#x27;,&#x27;Triglyceride&#x27;,&#x27;Glycogen&#x27;],&#x27;DNA stores genetic information in most organisms.&#x27;),
+ Q(&#x27;Which organelle is the primary site of aerobic ATP production?&#x27;,[&#x27;Mitochondrion&#x27;,&#x27;Golgi apparatus&#x27;,&#x27;Lysosome&#x27;,&#x27;Nucleolus&#x27;],&#x27;Mitochondria generate much ATP through cellular respiration.&#x27;),
+ Q(&#x27;What does a ribosome do?&#x27;,[&#x27;Synthesises proteins&#x27;,&#x27;Stores genetic code only&#x27;,&#x27;Produces bile&#x27;,&#x27;Digests sunlight&#x27;],&#x27;Ribosomes translate messenger RNA into polypeptides.&#x27;),
+ Q(&#x27;Which process produces two genetically similar daughter cells?&#x27;,[&#x27;Mitosis&#x27;,&#x27;Meiosis&#x27;,&#x27;Fertilisation&#x27;,&#x27;Transcription&#x27;],&#x27;Mitosis supports growth and repair and usually produces genetically similar daughter cells.&#x27;),
+ Q(&#x27;What is an enzyme?&#x27;,[&#x27;A biological catalyst&#x27;,&#x27;A type of chromosome only&#x27;,&#x27;A sugar molecule always&#x27;,&#x27;A cell membrane&#x27;],&#x27;Enzymes accelerate biochemical reactions without being consumed overall.&#x27;),
+ Q(&#x27;What is the role of mRNA?&#x27;,[&#x27;Carry coding information to ribosomes&#x27;,&#x27;Store fats permanently&#x27;,&#x27;Build cell walls in animals&#x27;,&#x27;Digest DNA in every case&#x27;],&#x27;Messenger RNA carries a transcript used during protein synthesis.&#x27;)]},
+  &#x27;Chemistry &amp; Reactions&#x27;:{lesson:&#x27;Chemistry and reactions&#x27;,copy:&#x27;Chemical reactions rearrange atoms as bonds break and form. Atoms are conserved in ordinary chemical reactions.&#x27;,example:&#x27;A balanced chemical equation has equal numbers of each atom on both sides.&#x27;,qs:[
+ Q(&#x27;What does a catalyst do?&#x27;,[&#x27;Lowers activation energy pathway&#x27;,&#x27;Changes the identity of every atom&#x27;,&#x27;Always increases product mass&#x27;,&#x27;Stops all reactions&#x27;],&#x27;A catalyst offers a pathway with lower activation energy.&#x27;),
+ Q(&#x27;What is the approximate pH of a neutral aqueous solution at 25°C?&#x27;,[&#x27;1&#x27;,&#x27;5&#x27;,&#x27;7&#x27;,&#x27;14&#x27;],&#x27;At 25°C, neutral water has pH close to 7.&#x27;),
+ Q(&#x27;Which particle has a negative charge?&#x27;,[&#x27;Proton&#x27;,&#x27;Neutron&#x27;,&#x27;Electron&#x27;,&#x27;Alpha particle&#x27;],&#x27;Electrons carry negative electric charge.&#x27;),
+ Q(&#x27;What does oxidation commonly involve in redox chemistry?&#x27;,[&#x27;Loss of electrons&#x27;,&#x27;Gain of electrons only&#x27;,&#x27;Loss of protons only&#x27;,&#x27;No electron change ever&#x27;],&#x27;Oxidation is defined as loss of electrons.&#x27;),
+ Q(&#x27;Which bond involves sharing electron pairs?&#x27;,[&#x27;Covalent&#x27;,&#x27;Ionic only&#x27;,&#x27;Metallic only&#x27;,&#x27;Gravitational&#x27;],&#x27;Covalent bonds form when atoms share electron pairs.&#x27;),
+ Q(&#x27;Why balance a chemical equation?&#x27;,[&#x27;To conserve atoms&#x27;,&#x27;To make coefficients all odd&#x27;,&#x27;To remove products&#x27;,&#x27;To change the elements&#x27;],&#x27;Balancing reflects conservation of atoms in a reaction.&#x27;)]},
+  &#x27;Physics &amp; Electricity&#x27;:{lesson:&#x27;Physics and electricity&#x27;,copy:&#x27;Physics models motion, energy, matter and interactions. Circuits use potential difference to drive current.&#x27;,example:&#x27;Ohm’s law: V = IR for an ohmic conductor under suitable conditions.&#x27;,qs:[
+ Q(&#x27;What is the SI unit of electric current?&#x27;,[&#x27;Volt&#x27;,&#x27;Ampere&#x27;,&#x27;Ohm&#x27;,&#x27;Watt&#x27;],&#x27;Electric current is measured in amperes (A).&#x27;),
+ Q(&#x27;If V = 12 V and R = 4 Ω, what current flows in an ohmic resistor?&#x27;,[&#x27;2 A&#x27;,&#x27;3 A&#x27;,&#x27;4 A&#x27;,&#x27;48 A&#x27;],&#x27;Using I = V/R, current is 12/4 = 3 A.&#x27;),
+ Q(&#x27;What is the SI unit of energy?&#x27;,[&#x27;Newton&#x27;,&#x27;Joule&#x27;,&#x27;Pascal&#x27;,&#x27;Tesla&#x27;],&#x27;Energy is measured in joules (J).&#x27;),
+ Q(&#x27;Which law relates force, mass and acceleration?&#x27;,[&#x27;Newton’s second law&#x27;,&#x27;Ohm’s law&#x27;,&#x27;Hooke’s law only&#x27;,&#x27;Snell’s law&#x27;],&#x27;Newton’s second law is commonly written F = ma.&#x27;),
+ Q(&#x27;What happens to the total energy in an isolated system?&#x27;,[&#x27;It is conserved&#x27;,&#x27;It always doubles&#x27;,&#x27;It always disappears&#x27;,&#x27;It becomes massless&#x27;],&#x27;Energy is conserved, though it may change form.&#x27;),
+ Q(&#x27;Which wave property is measured in hertz?&#x27;,[&#x27;Frequency&#x27;,&#x27;Wavelength&#x27;,&#x27;Amplitude&#x27;,&#x27;Wave speed&#x27;],&#x27;Hertz means cycles per second and is the unit of frequency.&#x27;)]},
+  &#x27;Ecology &amp; Environment&#x27;:{lesson:&#x27;Ecology and environment&#x27;,copy:&#x27;Ecology studies interactions among organisms and their environments, including energy flow and nutrient cycles.&#x27;,example:&#x27;Energy is transferred through food webs, with some dissipated as heat at each trophic level.&#x27;,qs:[
+ Q(&#x27;What is biodiversity?&#x27;,[&#x27;Variety of life&#x27;,&#x27;Only the number of rocks&#x27;,&#x27;A weather forecast&#x27;,&#x27;One species only&#x27;],&#x27;Biodiversity includes variation within species, between species and ecosystems.&#x27;),
+ Q(&#x27;Which gas is a major human-caused greenhouse gas?&#x27;,[&#x27;Carbon dioxide&#x27;,&#x27;Neon&#x27;,&#x27;Argon&#x27;,&#x27;Helium&#x27;],&#x27;Carbon dioxide from activities such as fossil fuel burning contributes to warming.&#x27;),
+ Q(&#x27;What is a producer in an ecosystem?&#x27;,[&#x27;An organism that makes organic food&#x27;,&#x27;A top predator only&#x27;,&#x27;A decomposing plastic item&#x27;,&#x27;A nonliving rock&#x27;],&#x27;Producers, such as plants and algae, build organic matter using energy sources.&#x27;),
+ Q(&#x27;What does a decomposer do?&#x27;,[&#x27;Breaks down dead organic matter&#x27;,&#x27;Creates sunlight&#x27;,&#x27;Stops nutrient cycling&#x27;,&#x27;Makes all animals producers&#x27;],&#x27;Decomposers return nutrients to ecosystems.&#x27;),
+ Q(&#x27;What is a renewable resource?&#x27;,[&#x27;One replenished naturally on relevant timescales&#x27;,&#x27;A resource that never needs management&#x27;,&#x27;Any fossil fuel&#x27;,&#x27;A resource that cannot be replaced&#x27;],&#x27;Renewable resources can be replenished naturally, though sustainability still matters.&#x27;),
+ Q(&#x27;What is habitat fragmentation?&#x27;,[&#x27;Breaking habitat into separated patches&#x27;,&#x27;Increasing every habitat area&#x27;,&#x27;A change in an organism’s DNA only&#x27;,&#x27;A daily weather event&#x27;],&#x27;Fragmentation divides habitats and can isolate populations.&#x27;)]}
+ },
+ Mathematics:{
+  &#x27;Calculus &amp; Functions&#x27;:{lesson:&#x27;Calculus and functions&#x27;,copy:&#x27;Calculus studies change and accumulation. Derivatives describe instantaneous rates of change.&#x27;,example:&#x27;For f(x) = x², the derivative is f′(x) = 2x.&#x27;,qs:[
+ Q(&#x27;What is the derivative of f(x) = x²?&#x27;,[&#x27;x&#x27;,&#x27;2x&#x27;,&#x27;x³&#x27;,&#x27;2&#x27;],&#x27;Using the power rule, d(x²)/dx = 2x.&#x27;),
+ Q(&#x27;What is the integral of 2x with respect to x?&#x27;,[&#x27;2&#x27;,&#x27;x² + C&#x27;,&#x27;2x²&#x27;,&#x27;x + C&#x27;],&#x27;An antiderivative of 2x is x² + C.&#x27;),
+ Q(&#x27;What is the slope of y = 3x + 2?&#x27;,[&#x27;2&#x27;,&#x27;3&#x27;,&#x27;5&#x27;,&#x27;x&#x27;],&#x27;In y = mx + b, the coefficient m is the slope, so it is 3.&#x27;),
+ Q(&#x27;What is the limit of x + 1 as x approaches 2?&#x27;,[&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;,&#x27;Undefined&#x27;],&#x27;The function is continuous, so substituting x = 2 gives 3.&#x27;),
+ Q(&#x27;If f(x)=x², what is f(3)?&#x27;,[&#x27;6&#x27;,&#x27;8&#x27;,&#x27;9&#x27;,&#x27;12&#x27;],&#x27;Substitute 3: 3² = 9.&#x27;),
+ Q(&#x27;What does a definite integral often represent geometrically?&#x27;,[&#x27;Signed area under a curve&#x27;,&#x27;Only a slope&#x27;,&#x27;A matrix inverse&#x27;,&#x27;A probability always&#x27;],&#x27;A definite integral can represent signed area between a curve and the x-axis.&#x27;)]},
+  &#x27;Linear Algebra&#x27;:{lesson:&#x27;Linear algebra&#x27;,copy:&#x27;Linear algebra studies vectors, matrices and linear transformations, central to data science, graphics and engineering.&#x27;,example:&#x27;A matrix product is defined only when the inner dimensions agree.&#x27;,qs:[
+ Q(&#x27;What is the determinant of [[1,0],[0,1]]?&#x27;,[&#x27;0&#x27;,&#x27;1&#x27;,&#x27;2&#x27;,&#x27;Undefined&#x27;],&#x27;The identity matrix has determinant 1.&#x27;),
+ Q(&#x27;When can matrix A (m×n) multiply matrix B (p×q)?&#x27;,[&#x27;When n = p&#x27;,&#x27;When m = q&#x27;,&#x27;Only if both are square&#x27;,&#x27;Always&#x27;],&#x27;The number of columns in A must equal the number of rows in B.&#x27;),
+ Q(&#x27;What is the dot product of (1,2) and (3,4)?&#x27;,[&#x27;7&#x27;,&#x27;10&#x27;,&#x27;11&#x27;,&#x27;14&#x27;],&#x27;Compute 1×3 + 2×4 = 11.&#x27;),
+ Q(&#x27;What does a linearly independent set contain?&#x27;,[&#x27;No vector is a combination of the others&#x27;,&#x27;Only zero vectors&#x27;,&#x27;Only parallel vectors&#x27;,&#x27;Always exactly two vectors&#x27;],&#x27;Linear independence means no vector in the set is a linear combination of the others.&#x27;),
+ Q(&#x27;What is the identity matrix’s key property?&#x27;,[&#x27;AI = IA = A&#x27;,&#x27;A + I = 0 always&#x27;,&#x27;I has no diagonal&#x27;,&#x27;It changes every vector to zero&#x27;],&#x27;Multiplying a compatible matrix by the identity leaves it unchanged.&#x27;),
+ Q(&#x27;What does a zero vector contain?&#x27;,[&#x27;All components zero&#x27;,&#x27;All components one&#x27;,&#x27;Only positive values&#x27;,&#x27;No components in any space&#x27;],&#x27;Every component of the zero vector is zero.&#x27;)]},
+  &#x27;Statistics &amp; Probability&#x27;:{lesson:&#x27;Statistics and probability&#x27;,copy:&#x27;Statistics uses data to describe patterns and quantify uncertainty. Sampling design affects how well results generalise.&#x27;,example:&#x27;A larger sample can reduce random uncertainty, but it does not automatically remove bias.&#x27;,qs:[
+ Q(&#x27;What is the mean of 2, 4, 6, 8?&#x27;,[&#x27;4&#x27;,&#x27;5&#x27;,&#x27;6&#x27;,&#x27;20&#x27;],&#x27;The mean is (2+4+6+8)/4 = 5.&#x27;),
+ Q(&#x27;What is the probability of an impossible event?&#x27;,[&#x27;0&#x27;,&#x27;0.5&#x27;,&#x27;1&#x27;,&#x27;−1&#x27;],&#x27;An impossible event has probability zero.&#x27;),
+ Q(&#x27;What does standard deviation describe?&#x27;,[&#x27;Spread around the mean&#x27;,&#x27;Only the largest value&#x27;,&#x27;Sample size alone&#x27;,&#x27;Causation&#x27;],&#x27;Standard deviation measures dispersion around the mean.&#x27;),
+ Q(&#x27;What is a confounding variable?&#x27;,[&#x27;A factor related to exposure and outcome that can distort an association&#x27;,&#x27;A random label&#x27;,&#x27;A graph axis&#x27;,&#x27;The sample mean&#x27;],&#x27;Confounding can make an observed relationship misleading.&#x27;),
+ Q(&#x27;For independent events A and B, what is P(A and B)?&#x27;,[&#x27;P(A)+P(B)&#x27;,&#x27;P(A)P(B)&#x27;,&#x27;P(A)/P(B) always&#x27;,&#x27;1−P(A)&#x27;],&#x27;For independent events, the joint probability is the product.&#x27;),
+ Q(&#x27;What does a confidence interval communicate?&#x27;,[&#x27;Uncertainty around an estimate under a method&#x27;,&#x27;A guaranteed range for every individual&#x27;,&#x27;A proof of causation&#x27;,&#x27;The exact population value always&#x27;],&#x27;A confidence interval quantifies uncertainty in an estimate under its statistical assumptions.&#x27;)]},
+  &#x27;Discrete Mathematics&#x27;:{lesson:&#x27;Discrete mathematics&#x27;,copy:&#x27;Discrete mathematics studies countable structures such as logic, sets, graphs, relations and algorithms.&#x27;,example:&#x27;A statement and its negation cannot both be true in classical logic.&#x27;,qs:[
+ Q(&#x27;What is the negation of “P is true”?&#x27;,[&#x27;P is false&#x27;,&#x27;P is true&#x27;,&#x27;P and Q&#x27;,&#x27;P implies Q&#x27;],&#x27;The negation of P is not P.&#x27;),
+ Q(&#x27;A connected graph with no cycles is called what?&#x27;,[&#x27;Tree&#x27;,&#x27;Complete graph always&#x27;,&#x27;Matrix&#x27;,&#x27;Sequence&#x27;],&#x27;A tree is a connected acyclic graph.&#x27;),
+ Q(&#x27;What is 2⁵?&#x27;,[&#x27;10&#x27;,&#x27;16&#x27;,&#x27;32&#x27;,&#x27;64&#x27;],&#x27;2⁵ = 2×2×2×2×2 = 32.&#x27;),
+ Q(&#x27;What does a set union A ∪ B contain?&#x27;,[&#x27;Elements in A or B or both&#x27;,&#x27;Only common elements&#x27;,&#x27;Only elements outside both&#x27;,&#x27;Only ordered pairs&#x27;],&#x27;Union combines elements belonging to either set.&#x27;),
+ Q(&#x27;What is the purpose of Big-O notation?&#x27;,[&#x27;Describe asymptotic growth&#x27;,&#x27;Give exact runtime on every machine&#x27;,&#x27;Measure screen size&#x27;,&#x27;Prove every program correct&#x27;],&#x27;Big-O describes an upper-bound style of growth rate as input size increases.&#x27;),
+ Q(&#x27;How many edges does a tree with 8 vertices have?&#x27;,[&#x27;6&#x27;,&#x27;7&#x27;,&#x27;8&#x27;,&#x27;9&#x27;],&#x27;A finite tree with n vertices has n−1 edges, so 7.&#x27;)]},
+ },
+ Computing:{
+  &#x27;Programming Fundamentals&#x27;:{lesson:&#x27;Programming fundamentals&#x27;,copy:&#x27;Programs combine data, control flow and functions to automate tasks. Good code is readable, testable and maintainable.&#x27;,example:&#x27;Break a problem into small functions, then test expected and edge cases.&#x27;,qs:[
+ Q(&#x27;What is a variable commonly used for?&#x27;,[&#x27;Storing a value&#x27;,&#x27;Displaying a pixel only&#x27;,&#x27;Connecting a monitor&#x27;,&#x27;Compiling electricity&#x27;],&#x27;Variables name values used by a program.&#x27;),
+ Q(&#x27;What does a conditional statement do?&#x27;,[&#x27;Selects a path based on a condition&#x27;,&#x27;Always repeats forever&#x27;,&#x27;Deletes all data&#x27;,&#x27;Only styles a page&#x27;],&#x27;Conditionals choose between paths based on a Boolean test.&#x27;),
+ Q(&#x27;What is a function?&#x27;,[&#x27;A reusable block of code&#x27;,&#x27;A monitor setting&#x27;,&#x27;A type of cable&#x27;,&#x27;An error message only&#x27;],&#x27;Functions package logic for reuse and clearer organisation.&#x27;),
+ Q(&#x27;What is debugging?&#x27;,[&#x27;Finding and fixing defects&#x27;,&#x27;Adding random features&#x27;,&#x27;Deleting tests&#x27;,&#x27;Renaming all files&#x27;],&#x27;Debugging identifies and corrects program errors.&#x27;),
+ Q(&#x27;What is an array/list useful for?&#x27;,[&#x27;Holding a collection of values&#x27;,&#x27;Only drawing images&#x27;,&#x27;Replacing all algorithms&#x27;,&#x27;Storing electricity&#x27;],&#x27;Lists and arrays store ordered collections of values.&#x27;),
+ Q(&#x27;What is a Boolean value?&#x27;,[&#x27;True or false&#x27;,&#x27;Any paragraph&#x27;,&#x27;Only a decimal&#x27;,&#x27;A file extension&#x27;],&#x27;Boolean values represent logical truth values.&#x27;)]},
+  &#x27;Data Structures &amp; Algorithms&#x27;:{lesson:&#x27;Data structures and algorithms&#x27;,copy:&#x27;Data structures organise information; algorithms process it. Choosing suitable structures can improve efficiency.&#x27;,example:&#x27;Binary search requires sorted data and halves the search interval each step.&#x27;,qs:[
+ Q(&#x27;Which structure follows LIFO order?&#x27;,[&#x27;Stack&#x27;,&#x27;Queue&#x27;,&#x27;Graph&#x27;,&#x27;Hash table only&#x27;],&#x27;A stack is last-in, first-out.&#x27;),
+ Q(&#x27;Which structure follows FIFO order?&#x27;,[&#x27;Queue&#x27;,&#x27;Stack&#x27;,&#x27;Tree only&#x27;,&#x27;Heap only&#x27;],&#x27;A queue is first-in, first-out.&#x27;),
+ Q(&#x27;What is binary search’s time complexity on sorted data?&#x27;,[&#x27;O(1) always&#x27;,&#x27;O(log n)&#x27;,&#x27;O(n²)&#x27;,&#x27;O(2ⁿ)&#x27;],&#x27;Binary search halves the search space at each step.&#x27;),
+ Q(&#x27;Which structure naturally represents parent-child hierarchy?&#x27;,[&#x27;Tree&#x27;,&#x27;Queue&#x27;,&#x27;Flat string only&#x27;,&#x27;Scalar&#x27;],&#x27;Trees model hierarchical relationships.&#x27;),
+ Q(&#x27;What is a hash table designed to support efficiently on average?&#x27;,[&#x27;Key-based lookup&#x27;,&#x27;Only sorting pixels&#x27;,&#x27;Matrix calculus&#x27;,&#x27;Audio playback only&#x27;],&#x27;Hash tables support average-case efficient key-based insertion and lookup.&#x27;),
+ Q(&#x27;Why analyse algorithm complexity?&#x27;,[&#x27;Estimate how resource needs grow with input size&#x27;,&#x27;Guarantee identical time on all devices&#x27;,&#x27;Choose a font&#x27;,&#x27;Avoid testing&#x27;],&#x27;Complexity helps compare scaling in time and space.&#x27;)]},
+  &#x27;Web Development&#x27;:{lesson:&#x27;Web development&#x27;,copy:&#x27;HTML structures content, CSS controls presentation, and JavaScript adds behaviour in the browser.&#x27;,example:&#x27;Semantic HTML and keyboard-accessible controls help more people use a site.&#x27;,qs:[
+ Q(&#x27;What is HTML primarily used for?&#x27;,[&#x27;Structuring web content&#x27;,&#x27;Styling every pixel only&#x27;,&#x27;Managing databases by itself&#x27;,&#x27;Routing network packets&#x27;],&#x27;HTML describes the structure and meaning of page content.&#x27;),
+ Q(&#x27;Which CSS property changes text colour?&#x27;,[&#x27;color&#x27;,&#x27;font-weight&#x27;,&#x27;padding&#x27;,&#x27;display&#x27;],&#x27;The CSS color property sets foreground text colour.&#x27;),
+ Q(&#x27;What does JavaScript commonly add to a page?&#x27;,[&#x27;Interactivity and logic&#x27;,&#x27;Only document headings&#x27;,&#x27;Physical network cables&#x27;,&#x27;A guaranteed secure server&#x27;],&#x27;JavaScript can respond to events and update page behaviour.&#x27;),
+ Q(&#x27;What does responsive design aim to do?&#x27;,[&#x27;Adapt layout to different screen sizes&#x27;,&#x27;Force desktop layout on phones&#x27;,&#x27;Disable accessibility&#x27;,&#x27;Use only images&#x27;],&#x27;Responsive layouts adjust to different viewports and devices.&#x27;),
+ Q(&#x27;Why use semantic HTML elements?&#x27;,[&#x27;To communicate structure and meaning&#x27;,&#x27;To hide all content&#x27;,&#x27;To make CSS unnecessary&#x27;,&#x27;To encrypt data automatically&#x27;],&#x27;Semantic elements improve document structure and accessibility.&#x27;),
+ Q(&#x27;What does an event listener do?&#x27;,[&#x27;Runs code in response to an event&#x27;,&#x27;Stores passwords securely by itself&#x27;,&#x27;Changes HTML into a database&#x27;,&#x27;Guarantees zero bugs&#x27;],&#x27;Event listeners respond to actions such as clicks or keyboard events.&#x27;)]},
+  &#x27;Databases &amp; Data&#x27;:{lesson:&#x27;Databases and data&#x27;,copy:&#x27;Databases organise information for querying and updating. Data quality, access control and privacy matter alongside performance.&#x27;,example:&#x27;A primary key uniquely identifies a row in a relational table.&#x27;,qs:[
+ Q(&#x27;What is a primary key used for?&#x27;,[&#x27;Uniquely identifying a row&#x27;,&#x27;Storing CSS colours only&#x27;,&#x27;Repeating every row&#x27;,&#x27;Encrypting the entire internet&#x27;],&#x27;A primary key identifies each row uniquely.&#x27;),
+ Q(&#x27;What does SQL commonly help users do?&#x27;,[&#x27;Query and manage relational data&#x27;,&#x27;Design a processor&#x27;,&#x27;Create a physical cable&#x27;,&#x27;Edit audio only&#x27;],&#x27;SQL is used to define, query and modify relational database data.&#x27;),
+ Q(&#x27;What is database normalisation intended to reduce?&#x27;,[&#x27;Unnecessary redundancy and update anomalies&#x27;,&#x27;All data accuracy&#x27;,&#x27;Every table&#x27;,&#x27;The need for keys&#x27;],&#x27;Normalisation structures relations to reduce redundancy and anomalies.&#x27;),
+ Q(&#x27;What is a database index for?&#x27;,[&#x27;Speeding up certain queries&#x27;,&#x27;Guaranteeing no errors&#x27;,&#x27;Replacing all backups&#x27;,&#x27;Making data public&#x27;],&#x27;Indexes can accelerate lookups at the cost of storage and write overhead.&#x27;),
+ Q(&#x27;Why should applications validate input?&#x27;,[&#x27;To reject invalid or unexpected values&#x27;,&#x27;To make all inputs trusted automatically&#x27;,&#x27;To expose private records&#x27;,&#x27;To avoid user feedback&#x27;],&#x27;Validation checks that input meets expected rules; server-side validation is essential for security.&#x27;),
+ Q(&#x27;What is a backup?&#x27;,[&#x27;A separate recoverable copy of data&#x27;,&#x27;A decorative icon&#x27;,&#x27;A database query only&#x27;,&#x27;A password hint&#x27;],&#x27;Backups support recovery after loss or corruption.&#x27;)]},
+  &#x27;Networks &amp; Cyber Safety&#x27;:{lesson:&#x27;Networks and cyber safety&#x27;,copy:&#x27;Networks move data between devices. Cyber safety combines secure design, careful handling of information and threat awareness.&#x27;,example:&#x27;Use unique passwords and multi-factor authentication where available; never share one-time codes.&#x27;,qs:[
+ Q(&#x27;What does HTTPS help provide?&#x27;,[&#x27;Encrypted transport and server authentication&#x27;,&#x27;A guarantee that a site is honest&#x27;,&#x27;Automatic protection from every scam&#x27;,&#x27;Free internet access&#x27;],&#x27;HTTPS uses TLS to protect data in transit and authenticate the site endpoint.&#x27;),
+ Q(&#x27;What is phishing?&#x27;,[&#x27;A deceptive attempt to steal information&#x27;,&#x27;A backup strategy&#x27;,&#x27;A programming language&#x27;,&#x27;A network cable type&#x27;],&#x27;Phishing messages impersonate trusted sources to trick people into revealing data or taking unsafe actions.&#x27;),
+ Q(&#x27;What is multi-factor authentication?&#x27;,[&#x27;Using two or more distinct verification factors&#x27;,&#x27;Using the same password twice&#x27;,&#x27;Sharing a password with a friend&#x27;,&#x27;Turning off updates&#x27;],&#x27;MFA combines distinct factors, such as something you know and something you have.&#x27;),
+ Q(&#x27;What is an IP address used for?&#x27;,[&#x27;Identifying an interface on an IP network&#x27;,&#x27;Encrypting every file automatically&#x27;,&#x27;Measuring temperature&#x27;,&#x27;Naming a CSS class&#x27;],&#x27;IP addresses help route packets to network interfaces.&#x27;),
+ Q(&#x27;Why install security updates?&#x27;,[&#x27;To fix known vulnerabilities and bugs&#x27;,&#x27;To make all attacks impossible&#x27;,&#x27;To share private data&#x27;,&#x27;To remove every backup&#x27;],&#x27;Updates often patch vulnerabilities and improve stability.&#x27;),
+ Q(&#x27;What should you do with an unexpected OTP request?&#x27;,[&#x27;Do not share the code; verify through a trusted channel&#x27;,&#x27;Send the code quickly&#x27;,&#x27;Post it publicly&#x27;,&#x27;Reuse it as a password&#x27;],&#x27;One-time codes can grant access; never share them with an unexpected requester.&#x27;)]},
+ }
+}
+};
+const $=id=&gt;document.getElementById(id);
+let level=&#x27;school&#x27;,subjectName=&#x27;&#x27;,topicName=&#x27;&#x27;,questions=[],order=[],index=0,score=0,hasAnswered=false,roundDone=false,perfectRounds=0,stats={answered:0,correct:0,learned:new Set()},lastLearned=[];
+const shuffle=a=&gt;{a=[...a];for(let i=a.length-1;i&gt;0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function currentTopic(){return bank[level][subjectName][topicName]}
+function fillSelect(select,values){select.innerHTML=&#x27;&#x27;;values.forEach(v=&gt;{const o=document.createElement(&#x27;option&#x27;);o.value=v;o.textContent=v;select.append(o)})}
+function chooseLevel(l){level=l;document.querySelectorAll(&#x27;.level-btn&#x27;).forEach(b=&gt;b.setAttribute(&#x27;aria-pressed&#x27;,String(b.dataset.level===l)));$(&#x27;lab-title&#x27;).textContent=l===&#x27;school&#x27;?&#x27;🎒 School Student Mini-Lab&#x27;:&#x27;🎓 College Student Mini-Lab&#x27;;$(&#x27;lab-description&#x27;).textContent=l===&#x27;school&#x27;?&#x27;Foundational questions across core school subjects.&#x27;:&#x27;More advanced concepts for college study and applied practice.&#x27;;fillSelect($(&#x27;subject&#x27;),Object.keys(bank[l]));subjectName=$(&#x27;subject&#x27;).value;fillTopics();newRound()}
+function fillTopics(){fillSelect($(&#x27;topic&#x27;),Object.keys(bank[level][subjectName]));topicName=$(&#x27;topic&#x27;).value;renderChips()}
+function renderChips(){const el=$(&#x27;topic-chips&#x27;);el.innerHTML=&#x27;&#x27;;Object.keys(bank[level][subjectName]).forEach(name=&gt;{const b=document.createElement(&#x27;button&#x27;);b.className=&#x27;topic-chip&#x27;+(name===topicName?&#x27; active&#x27;:&#x27;&#x27;);b.textContent=name;b.type=&#x27;button&#x27;;b.addEventListener(&#x27;click&#x27;,()=&gt;{$(&#x27;topic&#x27;).value=name;topicName=name;renderChips();newRound()});el.append(b)})}
+function updateLesson(){const t=currentTopic();$(&#x27;lesson-title&#x27;).textContent=t.lesson;$(&#x27;lesson-copy&#x27;).textContent=t.copy;$(&#x27;lesson-example&#x27;).textContent=t.example}
+function newRound(){const t=currentTopic();questions=t.qs;order=shuffle(questions.map((_,i)=&gt;i));index=0;score=0;hasAnswered=false;roundDone=false;stats={answered:0,correct:0,learned:new Set()};updateLesson();renderQuestion();updateDashboard()}
+function renderQuestion(){const q=questions[order[index]];hasAnswered=false;$(&#x27;question-count&#x27;).textContent=`Question ${index+1} of ${questions.length}`;$(&#x27;score-count&#x27;).textContent=`Score: ${score}`;$(&#x27;progress-fill&#x27;).style.width=`${index/questions.length*100}%`;$(&#x27;question&#x27;).textContent=q.q;$(&#x27;answers&#x27;).innerHTML=&#x27;&#x27;;$(&#x27;feedback&#x27;).textContent=&#x27;&#x27;;$(&#x27;next&#x27;).disabled=true;$(&#x27;next&#x27;).textContent=index===questions.length-1?&#x27;Finish round ✓&#x27;:&#x27;Next question →&#x27;;shuffle(q.opts.map((label,i)=&gt;({label,correct:i===q.answerIndex})).map(x=&gt;x)).forEach((option,i)=&gt;{const b=document.createElement(&#x27;button&#x27;);b.type=&#x27;button&#x27;;b.className=&#x27;answer&#x27;;b.textContent=option.label;b.dataset.correct=String(option.label===q.opts[q.correctIndex]);/* corrected below from canonical answer */b.dataset.correct=String(option.label===q.opts[q.answerIndex]);b.addEventListener(&#x27;click&#x27;,()=&gt;answer(b,q));$(&#x27;answers&#x27;).append(b)});}
+// Question helper stores correct answer as the first matching option text through answerIndex assignment below.
+function answer(button,q){if(hasAnswered||roundDone)return;hasAnswered=true;stats.answered++;const correct=button.dataset.correct===&#x27;true&#x27;;if(correct){score++;stats.correct++;stats.learned.add(q.why);button.classList.add(&#x27;correct&#x27;);$(&#x27;feedback&#x27;).textContent=&#x27;✓ Correct! &#x27;+q.why;$(&#x27;feedback&#x27;).style.color=&#x27;#087c5c&#x27;}else{button.classList.add(&#x27;wrong&#x27;);const right=[...$(&#x27;answers&#x27;).children].find(b=&gt;b.dataset.correct===&#x27;true&#x27;);if(right)right.classList.add(&#x27;correct&#x27;);$(&#x27;feedback&#x27;).textContent=&#x27;Not quite. &#x27;+q.why;$(&#x27;feedback&#x27;).style.color=&#x27;#a43b55&#x27;}[...$(&#x27;answers&#x27;).children].forEach(b=&gt;b.disabled=true);$(&#x27;score-count&#x27;).textContent=`Score: ${score}`;$(&#x27;progress-fill&#x27;).style.width=`${(index+1)/questions.length*100}%`;$(&#x27;next&#x27;).disabled=false;updateDashboard()}
+function updateDashboard(){const acc=stats.answered?Math.round(stats.correct/stats.answered*100):0;$(&#x27;stat-answered&#x27;).textContent=stats.answered;$(&#x27;stat-correct&#x27;).textContent=stats.correct;$(&#x27;stat-accuracy&#x27;).textContent=stats.answered?acc+&#x27;%&#x27;:&#x27;—&#x27;;$(&#x27;stat-perfect&#x27;).textContent=perfectRounds;$(&#x27;learned&#x27;).textContent=stats.learned.size?[...stats.learned].slice(0,4).join(&#x27; &#x27;)+(stats.learned.size&gt;4?&#x27; More concepts reviewed.&#x27;:&#x27;&#x27;):&#x27;Your topic summary will grow as you answer questions.&#x27;}
+function finishRound(){roundDone=true;$(&#x27;next&#x27;).disabled=true;$(&#x27;next&#x27;).textContent=&#x27;Round complete ✓&#x27;;$(&#x27;question&#x27;).textContent=score===questions.length?&#x27;🌟 Perfect round! Excellent work.&#x27;:&#x27;🎉 Round complete — review your feedback&#x27;;$(&#x27;answers&#x27;).innerHTML=&#x27;&#x27;;$(&#x27;feedback&#x27;).textContent=`Final score: ${score}/${questions.length} (${Math.round(score/questions.length*100)}%). Start a new set to practise again.`;$(&#x27;feedback&#x27;).style.color=&#x27;#4d3cb0&#x27;;if(score===questions.length)perfectRounds++;updateDashboard();$(&#x27;progress-fill&#x27;).style.width=&#x27;100%&#x27;}
+$(&#x27;subject&#x27;).addEventListener(&#x27;change&#x27;,()=&gt;{subjectName=$(&#x27;subject&#x27;).value;fillTopics();newRound()});$(&#x27;topic&#x27;).addEventListener(&#x27;change&#x27;,()=&gt;{topicName=$(&#x27;topic&#x27;).value;renderChips();newRound()});document.querySelectorAll(&#x27;.level-btn&#x27;).forEach(b=&gt;b.addEventListener(&#x27;click&#x27;,()=&gt;chooseLevel(b.dataset.level)));$(&#x27;next&#x27;).addEventListener(&#x27;click&#x27;,()=&gt;{if(!hasAnswered||roundDone)return;if(index&lt;questions.length-1){index++;renderQuestion()}else finishRound()});$(&#x27;new-round&#x27;).addEventListener(&#x27;click&#x27;,newRound);
+function makeSummary(){return `StudyLoop Mini-Lab — ${level===&#x27;school&#x27;?&#x27;School&#x27;:&#x27;College&#x27;} Student\nSubject: ${subjectName}\nTopic: ${topicName}\nScore: ${score}/${questions.length}\nAccuracy: ${roundDone||stats.answered?Math.round(score/questions.length*100)+&#x27;%&#x27;:&#x27;In progress&#x27;}\nQuestions answered: ${stats.answered}\nWhat I learned: ${[...stats.learned].slice(0,5).join(&#x27; &#x27;)||&#x27;Practised &#x27;+topicName+&#x27;.&#x27;}\nPractice prototype — not an official grade.`}
+$(&#x27;share&#x27;).addEventListener(&#x27;click&#x27;,async()=&gt;{const msg=makeSummary();try{if(navigator.share){await navigator.share({title:&#x27;My StudyLoop learning score&#x27;,text:msg});$(&#x27;share-status&#x27;).textContent=&#x27;Share sheet opened.&#x27;}else{await navigator.clipboard.writeText(msg);$(&#x27;share-status&#x27;).textContent=&#x27;Summary copied. Paste it into a message or post.&#x27;}}catch(e){$(&#x27;share-status&#x27;).textContent=&#x27;Sharing was cancelled or is unavailable. Use Copy summary instead.&#x27;}});
+$(&#x27;copy&#x27;).addEventListener(&#x27;click&#x27;,async()=&gt;{try{await navigator.clipboard.writeText(makeSummary());$(&#x27;share-status&#x27;).textContent=&#x27;Learning summary copied to clipboard.&#x27;}catch(e){$(&#x27;share-status&#x27;).textContent=&#x27;Clipboard is unavailable in this browser. Select and copy: &#x27;+makeSummary()}});
+const tips={idea:&#x27;Idea bulb: turn curiosity into one clear question.&#x27;,book:&#x27;Books: read a short explanation, then restate it in your own words.&#x27;,planet:&#x27;Planet: practise a question before moving to the next concept.&#x27;,progress:&#x27;Progress bars: review mistakes and choose one thing to revisit.&#x27;,atom:&#x27;Atom: connect new facts to a model or example.&#x27;};document.querySelectorAll(&#x27;[data-tip]&#x27;).forEach(el=&gt;{const go=()=&gt;{const msg=tips[el.dataset.tip]||&#x27;Keep learning one step at a time.&#x27;;$(&#x27;hero-tip&#x27;).textContent=msg;$(&#x27;side-tip&#x27;).textContent=msg};el.addEventListener(&#x27;click&#x27;,go);el.addEventListener(&#x27;keydown&#x27;,e=&gt;{if(e.key===&#x27;Enter&#x27;||e.key===&#x27; &#x27;){e.preventDefault();go()}})});
+$(&#x27;ack&#x27;).addEventListener(&#x27;change&#x27;,()=&gt;{$(&#x27;consent-status&#x27;).textContent=$(&#x27;ack&#x27;).checked?&#x27;Thanks — you can continue to Mini-Labs.&#x27;:&#x27;Tick the checkbox to continue.&#x27;;$(&#x27;continue&#x27;).setAttribute(&#x27;aria-disabled&#x27;,String(!$(&#x27;ack&#x27;).checked))});$(&#x27;continue&#x27;).addEventListener(&#x27;click&#x27;,(event)=&gt;{event.preventDefault();if(!$(&#x27;ack&#x27;).checked){$(&#x27;consent-status&#x27;).textContent=&#x27;Please tick the checkbox above before continuing.&#x27;;$(&#x27;ack&#x27;).focus();return;} $(&#x27;notice&#x27;).hidden=true;$(&#x27;notice&#x27;).setAttribute(&#x27;aria-hidden&#x27;,&#x27;true&#x27;);document.body.style.overflow=&#x27;&#x27;;setTimeout(()=&gt;{const subject=$(&#x27;subject&#x27;);if(subject)subject.focus({preventScroll:true});},50)});document.body.style.overflow=&#x27;hidden&#x27;;
+// Convert each question&#x27;s options into a shuffled option list while retaining the right answer reliably.
+function normaliseBank(){Object.values(bank).forEach(levelData=&gt;Object.values(levelData).forEach(subjectData=&gt;Object.values(subjectData).forEach(topic=&gt;topic.qs.forEach(q=&gt;{const original=q.opts;q.correctText=original[0];q.opts=shuffle(original);q.answerIndex=q.opts.indexOf(q.correctText);delete q.correctText}))));}
+// Rebuild to keep the correct answer at the first option in each authored question before shuffling presentation.
+function prepareQuestionBank(){Object.values(bank).forEach(levelData=&gt;Object.values(levelData).forEach(subjectData=&gt;Object.values(subjectData).forEach(topic=&gt;topic.qs.forEach(q=&gt;{q.answerIndex=0}))));}
+prepareQuestionBank();chooseLevel(&#x27;school&#x27;);
+})();
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;" style="display:block;width:100%;height:2300px;border:0;border-radius:18px;background:#0b1735" loading="lazy"></iframe></div>
+  </div>
+ </div>
+</section>
+<section class="section white">
+ <div class="wrap">
+  <div class="section-head"><span class="kicker">03 / Useful by design</span><h2>Designed around practical learning needs.</h2><p>Keep the first version simple, accessible, and affordable before adding complexity.</p></div>
+  <div class="feature-grid">
+   <article class="feature reveal"><div class="feature-icon">Aa</div><h3>Clear explanations</h3><p>Short, bite-sized material that makes concepts easier to approach.</p></article>
+   <article class="feature reveal delay-1"><div class="feature-icon">✓</div><h3>Quick practice</h3><p>Low-pressure questions with immediate feedback to support recall.</p></article>
+   <article class="feature reveal delay-2"><div class="feature-icon">↗</div><h3>Simple progress</h3><p>A lightweight way to notice completed practice and topics to revisit.</p></article>
+   <article class="feature reveal"><div class="feature-icon">◎</div><h3>Student-focused</h3><p>Built around the needs of school and college learners.</p></article>
+   <article class="feature reveal delay-1"><div class="feature-icon">⌁</div><h3>Easy to use</h3><p>A responsive interface designed for both mobile and desktop screens.</p></article>
+   <article class="feature reveal delay-2"><div class="feature-icon">◇</div><h3>Privacy-aware</h3><p>No sign-up in this demo; future versions should minimise data collection.</p></article>
+  </div>
+ </div>
+</section>
+<section class="section" id="roadmap">
+ <div class="wrap">
+  <div class="section-head"><span class="kicker">04 / From topic to review</span><h2>A simple five-step learning cycle.</h2><p>One small loop makes the learning process easier to follow and improve.</p></div>
+  <div class="process-visual"><svg viewBox="0 0 900 135" role="img" aria-label="Five stages: choose a topic, learn, practise, review, repeat">
+    <defs><marker id="loopArrow" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#6dbaff"/></marker></defs>
+    <g font-family="system-ui,sans-serif" text-anchor="middle">
+    <g fill="#153d68" stroke="#397bb4"><rect x="8" y="16" width="150" height="77" rx="11"/><rect x="194" y="16" width="150" height="77" rx="11"/><rect x="380" y="16" width="150" height="77" rx="11"/><rect x="566" y="16" width="150" height="77" rx="11"/><rect x="752" y="16" width="140" height="77" rx="11"/></g>
+    <g fill="#9ed2ff" font-size="10" font-weight="800"><text x="83" y="38">STEP 01</text><text x="269" y="38">STEP 02</text><text x="455" y="38">STEP 03</text><text x="641" y="38">STEP 04</text><text x="822" y="38">STEP 05</text></g>
+    <g fill="#fff" font-size="14" font-weight="700"><text x="83" y="65">Choose</text><text x="269" y="65">Learn</text><text x="455" y="65">Practise</text><text x="641" y="65">Review</text><text x="822" y="65">Repeat</text></g>
+    <g stroke="#6dbaff" stroke-width="2" fill="none" marker-end="url(#loopArrow)"><path d="M160 55H186"/><path d="M346 55H372"/><path d="M532 55H558"/><path d="M718 55H744"/></g>
+    <text x="450" y="119" fill="#c3dcf5" font-size="12">A repeatable loop makes independent study easier to organise.</text></g></svg></div>
+  <div class="phases">
+   <article class="phase"><span class="phase-tag">STEP 01</span><h3>Choose a topic</h3><p>Set one specific learning goal.</p></article>
+   <article class="phase"><span class="phase-tag">STEP 02</span><h3>Read & understand</h3><p>Review a short explanation and example.</p></article>
+   <article class="phase"><span class="phase-tag">STEP 03</span><h3>Practise</h3><p>Answer a question and check your response.</p></article>
+   <article class="phase"><span class="phase-tag">STEP 04</span><h3>Review mistakes</h3><p>Notice gaps and revisit the key idea.</p></article>
+   <article class="phase"><span class="phase-tag">STEP 05</span><h3>Repeat & improve</h3><p>Use feedback to refine the next session.</p></article>
+  </div>
+ </div>
+</section>
+<section class="section white">
+ <div class="wrap">
+  <div class="section-head"><span class="kicker">05 / Prove the basics before scaling</span><h2>Start small. Test honestly.</h2><p>Grow the idea only after checking whether learners find it useful, clear, and easy to use.</p></div>
+  <div class="status-grid">
+   <article class="status"><span>Now</span><h3>Idea stage</h3><p>Define the problem, learning flow, and core requirements.</p></article>
+   <article class="status active"><span>Next</span><h3>Small demonstrator</h3><p>Ask a small volunteer group to try sample lessons and share genuine feedback.</p></article>
+   <article class="status"><span>Later</span><h3>Potential expansion</h3><p>Consider more subjects, levels, languages, and reviewed learning materials.</p></article>
+  </div>
+  <div class="support"><h3>Support that could help</h3><p>Faculty mentorship · Software and interface design guidance · Teacher review of learning content · Student usability testing · Small-scale prototype funding</p></div>
+ </div>
+</section>
+<section class="section">
+ <div class="wrap">
+  <div class="section-head"><span class="kicker">06 / Indicative planning</span><h2>A budget to discuss—not a quote.</h2><p>Costs depend on whether tools, hosting, and development support are already available.</p></div>
+  <table class="budget"><thead><tr><th>Cost area</th><th>Planning estimate</th><th>Notes</th></tr></thead><tbody>
+   <tr><td>Development tools</td><td>₹0–₹2,000</td><td>Free tools may be enough</td></tr>
+   <tr><td>Hosting / domain</td><td>₹0–₹3,000</td><td>Depends on publishing choice</td></tr>
+   <tr><td>Testing and connectivity</td><td>₹500–₹2,000</td><td>Approximate allowance</td></tr>
+   <tr><td>Content review / materials</td><td>₹0–₹2,000</td><td>Depends on available support</td></tr>
+   <tr><td>Total indicative range</td><td>₹500–₹9,000</td><td>Not a verified supplier quote</td></tr>
+  </tbody></table>
+  <p class="fineprint">These figures are illustrative planning assumptions only. Confirm local prices and requirements before spending.</p>
+ </div>
+</section>
+
+<section class="section white" id="trust">
+ <div class="wrap">
+  <div class="section-head"><span class="kicker">Trust / Terms & security</span><h2>Build for clarity, access, and trust.</h2><p>Safety is part of the design. This prototype avoids sign-in and demonstrates a simple learning flow.</p></div>
+  <div class="art-cards" aria-label="Interactive learning illustrations">
+   <article class="art-card">
+    <svg viewBox="0 0 260 115" role="img" aria-label="Stack of colourful books in 3D style">
+     <defs><linearGradient id="cbook1"><stop stop-color="#ffb3df"/><stop offset="1" stop-color="#f34d9c"/></linearGradient><linearGradient id="cbook2"><stop stop-color="#9af4ee"/><stop offset="1" stop-color="#23b9bb"/></linearGradient><linearGradient id="cbook3"><stop stop-color="#ffe98c"/><stop offset="1" stop-color="#ff9f43"/></linearGradient></defs>
+     <ellipse cx="128" cy="100" rx="83" ry="9" fill="#b8c9e3" opacity=".45"/>
+     <g class="artwork-object" tabindex="0" role="button" aria-label="Books represent bite-sized explanations" data-art-action="book"><path d="M49 73l104-24 59 20-105 27z" fill="url(#cbook1)"/><path d="M49 73v12l58 20V96z" fill="#b82b76"/><path d="M107 96v9l105-26V69z" fill="#9a205f"/><path d="M61 55l98-22 52 18-99 23z" fill="url(#cbook2)"/><path d="M61 55v13l51 18V74z" fill="#178b94"/><path d="M112 74v12l99-22V51z" fill="#116d7d"/><path d="M74 39l76-18 44 15-78 19z" fill="url(#cbook3)"/><path d="M74 39v10l42 16V55z" fill="#d97927"/><path d="M116 55v10l78-19V36z" fill="#b85a1d"/></g>
+    </svg><span class="art-tag">EXPLAIN</span><h3>Make ideas tangible</h3><p>Use a clear example to start learning.</p>
+   </article>
+   <article class="art-card">
+    <svg viewBox="0 0 260 115" role="img" aria-label="3D target with a bright check mark">
+     <defs><linearGradient id="target1"><stop stop-color="#9c91ff"/><stop offset="1" stop-color="#644be0"/></linearGradient><linearGradient id="target2"><stop stop-color="#8ef0cf"/><stop offset="1" stop-color="#1eb889"/></linearGradient></defs>
+     <ellipse cx="130" cy="100" rx="66" ry="9" fill="#b8c9e3" opacity=".45"/>
+     <g class="artwork-object" tabindex="0" role="button" aria-label="Target represents practice and feedback" data-art-action="practice"><ellipse cx="130" cy="75" rx="68" ry="24" fill="#4b36bc"/><ellipse cx="130" cy="66" rx="68" ry="24" fill="url(#target1)"/><ellipse cx="130" cy="66" rx="48" ry="17" fill="#e7ddff"/><ellipse cx="130" cy="66" rx="30" ry="11" fill="#ff8ecb"/><ellipse cx="130" cy="66" rx="13" ry="5" fill="url(#target2)"/><path d="M113 32l12 12 28-30" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M113 32l12 12 28-30" fill="none" stroke="#24b98b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+    </svg><span class="art-tag">PRACTISE</span><h3>Learn by trying</h3><p>Short questions turn reading into active recall.</p>
+   </article>
+   <article class="art-card">
+    <svg viewBox="0 0 260 115" role="img" aria-label="Colourful rising progress bars and a star">
+     <defs><linearGradient id="barA"><stop stop-color="#8ceeff"/><stop offset="1" stop-color="#3989ff"/></linearGradient><linearGradient id="barB"><stop stop-color="#b7a1ff"/><stop offset="1" stop-color="#7855e9"/></linearGradient></defs>
+     <ellipse cx="130" cy="100" rx="75" ry="8" fill="#b8c9e3" opacity=".45"/>
+     <g class="artwork-object" tabindex="0" role="button" aria-label="Progress chart represents reviewing learning" data-art-action="progress"><path d="M54 87l150-25 15 9-150 26z" fill="#b8c9e3"/><path d="M65 83V63l27-5v25z" fill="url(#barA)"/><path d="M103 77V44l27-6v34z" fill="url(#barB)"/><path d="M141 70V30l27-6v41z" fill="#ff8dc9"/><path d="M179 64V18l27-6v47z" fill="#ffc45e"/><path d="M166 19l8-15 8 12 15 2-11 10 3 15-14-7-13 7 3-15-10-9z" fill="#ffe27b" stroke="#f2ad38" stroke-width="2"/></g>
+    </svg><span class="art-tag">REVIEW</span><h3>See the next step</h3><p>Use feedback to decide what to revisit.</p>
+   </article>
+  </div>
+  <p class="visual-prompt">The illustrations are interactive: hover, tap, or use the keyboard to explore them.</p>
+  <div class="feature-grid">
+   <article class="feature"><div class="feature-icon">!</div><h3>Never share secrets</h3><p>Do not submit passwords, OTPs, addresses, phone numbers, student IDs, or private records.</p></article>
+   <article class="feature"><div class="feature-icon">⌑</div><h3>Understand the demo</h3><p>Lessons and quizzes are sample content—not a live AI assistant or verified educational service.</p></article>
+   <article class="feature"><div class="feature-icon">✓</div><h3>Use content thoughtfully</h3><p>Check important learning information with a teacher or reliable educational source.</p></article>
+  </div>
+  <div class="interaction-note"><b aria-hidden="true">ⓘ</b><span><strong>Security notification:</strong> This demo does not ask for personal details. Any future version collecting data should explain what is collected, why, how long it is retained, and how deletion requests work.</span></div>
+  <div class="terms-area"><h3>Terms of use & privacy notes</h3><p>Tap each item to read the boundaries of this concept prototype.</p>
+   <div class="term-item"><button type="button" aria-expanded="false"><span>1. Educational purpose and accuracy</span><span aria-hidden="true">＋</span></button><div class="term-content">StudyLoop demonstrates a possible self-study experience. Sample content may be simplified or incomplete and should not replace textbooks, qualified teachers, or trusted learning materials.</div></div>
+   <div class="term-item"><button type="button" aria-expanded="false"><span>2. Personal information and browser storage</span><span aria-hidden="true">＋</span></button><div class="term-content">Do not enter sensitive information. The demo may save small quiz activity counters in this browser using local storage when available. This is not a secure account; values may disappear when browser data is cleared, and private browsing may block storage.</div></div>
+   <div class="term-item"><button type="button" aria-expanded="false"><span>3. Acceptable use</span><span aria-hidden="true">＋</span></button><div class="term-content">Use the demo for learning and evaluation. Do not attempt to disrupt the page, misuse another person's device, or store confidential information here.</div></div>
+   <div class="term-item"><button type="button" aria-expanded="false"><span>4. Security limitations</span><span aria-hidden="true">＋</span></button><div class="term-content">This static front-end prototype has no login, server-side database, or security monitoring. Do not use it for confidential records or represent it as a fully secured production platform.</div></div>
+   <div class="term-item"><button type="button" aria-expanded="false"><span>5. Testing, feedback, and future development</span><span aria-hidden="true">＋</span></button><div class="term-content">Before a pilot, obtain appropriate school/college approval and consent where needed. Collect only necessary feedback, protect participants' information, and report results honestly. No pilot results or learning outcomes are claimed here.</div></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" style="background:#081a35;color:white">
+ <div class="wrap">
+  <div class="section-head"><span class="kicker">07 / Define impact before claiming it</span><h2>Measure usefulness, not just activity.</h2><p style="color:#c2d3e6">A working interface is only the first step. Learning impact needs to be tested with real participants and appropriate consent.</p></div>
+  <div class="impact-grid">
+   <div><h3>Possible outcomes to study</h3><ul><li>Better access to organised revision materials</li><li>More regular practice habits</li><li>Greater awareness of topics needing revision</li></ul></div>
+   <div><h3>Ways to evaluate</h3><ul><li>Short usability questionnaires</li><li>Student and teacher feedback</li><li>Changes between initial and later quiz attempts</li></ul></div>
+  </div>
+  <div class="honest">No pilot or learning-outcome results are available yet. Test first, then report what the evidence shows.</div>
+ </div>
+</section>
+</main>
+<footer class="footer"><div class="wrap footer-row"><div><a class="brand" href="#home"><span class="logo" aria-hidden="true">S</span>StudyLoop</a><p>Small, structured steps for independent learning.</p></div><div><p>Concept demonstrator · No account required</p><p><a href="#challenge">Explore the idea</a> · <a href="#learn">Try the mini-lab</a></p></div></div></footer>
+
+<div class="notice-overlay" id="security-notice" role="presentation">
+ <section class="notice-dialog" role="dialog" aria-modal="true" aria-labelledby="notice-title" aria-describedby="notice-desc">
+  <div class="notice-top"><div class="notice-emblem" aria-hidden="true">!</div><div><span class="kicker">Please read before continuing</span><h2 id="notice-title">Privacy & security notice</h2></div></div>
+  <p id="notice-desc">StudyLoop is a learning concept demonstration. It is not a secure account service and does not need your personal information.</p>
+  <ul><li>Never enter passwords, OTPs, contact details, student IDs, or other sensitive data.</li><li>Sample lessons may be simplified; verify important information with trusted educational sources.</li><li>Quiz activity may be stored locally in your browser. This is not a secure personal profile.</li><li>Read the <a href="#trust" id="notice-terms-link">Terms & privacy notes</a> for the prototype's limitations.</li></ul>
+  <label class="notice-check"><input type="checkbox" id="notice-understood" onclick="window.studyLoopSyncNotice && window.studyLoopSyncNotice()"><span>I understand this is a demo and will not enter sensitive or private information.</span></label>
+  <div class="notice-actions"><button class="btn btn-primary" id="notice-continue" type="button" disabled onclick="window.studyLoopContinueNotice && window.studyLoopContinueNotice(event)">Continue to demo</button><button class="btn btn-secondary" id="notice-exit" type="button">Keep notice open</button></div>
+  <p class="notice-foot">This acknowledgement is not consent to marketing or data collection.</p>
+ </section>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+'use strict';
+const topics={
+ science:{title:'Photosynthesis in brief',copy:'Plants use light energy to turn water and carbon dioxide into glucose, releasing oxygen as a by-product.',example:'Remember: light + water + carbon dioxide → glucose + oxygen.',questions:[
+  {q:'Which gas do plants take in for photosynthesis?',a:[['Oxygen',false],['Carbon dioxide',true],['Helium',false]],why:'Plants take in carbon dioxide and use it with water and light to make glucose.'},
+  {q:'What provides the energy for photosynthesis?',a:[['Sunlight',true],['Moonlight only',false],['Sound',false]],why:'Chlorophyll captures light energy, usually from the Sun.'},
+  {q:'Which part of a plant mainly carries out photosynthesis?',a:[['Leaves',true],['Roots only',false],['Flowers only',false]],why:'Leaves contain many chloroplasts with chlorophyll.'},
+  {q:'Which green pigment absorbs light?',a:[['Chlorophyll',true],['Keratin',false],['Haemoglobin',false]],why:'Chlorophyll absorbs light energy for photosynthesis.'},
+  {q:'Which gas is released during photosynthesis?',a:[['Nitrogen',false],['Oxygen',true],['Carbon monoxide',false]],why:'Oxygen is released as a by-product when water is used in photosynthesis.'},
+  {q:'What sugar do plants make during photosynthesis?',a:[['Glucose',true],['Salt',false],['Starch directly only',false]],why:'Glucose is produced and can later be stored as starch.'},
+  {q:'Where inside plant cells does photosynthesis happen?',a:[['Chloroplasts',true],['Rib cages',false],['Bones',false]],why:'Chloroplasts contain chlorophyll and are the main site of photosynthesis.'},
+  {q:'Which two raw materials are used in photosynthesis?',a:[['Water and carbon dioxide',true],['Oxygen and sugar',false],['Salt and oxygen',false]],why:'Plants use water and carbon dioxide, powered by light energy.'},
+  {q:'What is one role of chlorophyll?',a:[['Absorb light energy',true],['Carry sound',false],['Make soil',false]],why:'Chlorophyll absorbs light that powers photosynthesis.'},
+  {q:'What can a plant do with extra glucose?',a:[['Store it as starch',true],['Turn it into plastic',false],['Release all of it as sand',false]],why:'Plants can convert glucose to starch for storage.'},
+  {q:'Why are most leaves broad and flat?',a:[['To capture more light',true],['To stop all water movement',false],['To make roots shorter',false]],why:'A broad leaf surface helps intercept light.'},
+  {q:'Which factor can limit photosynthesis if it is too low?',a:[['Light intensity',true],['The colour of a pot',false],['The plant name',false]],why:'Photosynthesis depends on factors such as light, carbon dioxide, and temperature.'},
+  {q:'What is the main source of carbon dioxide for a land plant?',a:[['Air',true],['Moonlight',false],['Rock crystals only',false]],why:'Land plants take carbon dioxide from the surrounding air through stomata.'},
+  {q:'What tiny openings allow gas exchange in many leaves?',a:[['Stomata',true],['Petals',false],['Thorns only',false]],why:'Stomata are pores that let gases move into and out of leaves.'},
+  {q:'Why is photosynthesis important to many food chains?',a:[['It stores light energy as chemical energy',true],['It removes all energy from food',false],['It prevents plants growing',false]],why:'Photosynthesis makes energy-rich sugars that support plants and organisms that eat them.'}
+ ]},
+ math:{title:'Fractions in brief',copy:'A fraction describes part of a whole. The top number is the numerator; the bottom number is the denominator.',example:'Remember: for 3/4, a whole is split into 4 equal parts and 3 parts are considered.',questions:[
+  {q:'Which fraction is equal to one half?',a:[['2/3',false],['2/4',true],['3/4',false]],why:'2/4 simplifies to 1/2 because the numerator and denominator divide by 2.'},
+  {q:'What is 1/4 + 2/4?',a:[['3/4',true],['3/8',false],['2/4',false]],why:'The denominators are the same, so add the numerators: 1 + 2 = 3.'},
+  {q:'In 5/7, what is the denominator?',a:[['5',false],['7',true],['12',false]],why:'The denominator is the bottom number: 7.'},
+  {q:'Which fraction is the largest?',a:[['1/5',false],['3/5',true],['2/5',false]],why:'With equal denominators, the fraction with the largest numerator is greatest.'},
+  {q:'What is 2/6 simplified?',a:[['1/3',true],['1/6',false],['2/3',false]],why:'Divide the numerator and denominator by 2 to get 1/3.'},
+  {q:'A pizza has 8 equal slices. You eat 3. What fraction remains?',a:[['3/8',false],['5/8',true],['8/5',false]],why:'Eight slices minus three eaten leaves five slices: 5/8.'},
+  {q:'What is 3/5 + 1/5?',a:[['4/5',true],['4/10',false],['3/10',false]],why:'Keep the common denominator and add the numerators: 3 + 1 = 4.'},
+  {q:'Which fraction is equivalent to 2/3?',a:[['4/6',true],['2/6',false],['3/2',false]],why:'Multiply numerator and denominator by 2: 2/3 = 4/6.'},
+  {q:'What is 7/8 − 2/8?',a:[['5/8',true],['5/16',false],['9/8',false]],why:'Subtract the numerators because the denominators are equal: 7 − 2 = 5.'},
+  {q:'Which is the smallest fraction?',a:[['1/6',true],['1/3',false],['1/2',false]],why:'For unit fractions, a larger denominator means a smaller part.'},
+  {q:'What is 1/2 written with denominator 10?',a:[['5/10',true],['2/10',false],['1/10',false]],why:'Multiply top and bottom by 5 to get 5/10.'},
+  {q:'A rectangle has 4 equal parts and 3 are shaded. What fraction is shaded?',a:[['3/4',true],['1/4',false],['4/3',false]],why:'Three of the four equal parts are shaded, so the fraction is 3/4.'},
+  {q:'What is 2/4 simplified?',a:[['1/2',true],['2/2',false],['1/4',false]],why:'Divide both numerator and denominator by 2.'},
+  {q:'Which sign makes 2/7 __ 5/7 true?',a:[['<',true],['>',false],['=',false]],why:'With the same denominator, 2 sevenths is less than 5 sevenths.'},
+  {q:'What is 1/3 of 12?',a:[['4',true],['3',false],['6',false]],why:'Divide 12 into 3 equal groups: each group contains 4.'}
+ ]},
+ computing:{title:'Algorithms in brief',copy:'An algorithm is a clear sequence of steps used to solve a problem or complete a task.',example:'Example: boil water → add tea → wait → serve. A clear order makes a process repeatable.',questions:[
+  {q:'What is an algorithm?',a:[['A random collection of files',false],['A step-by-step procedure',true],['Only a computer device',false]],why:'An algorithm is a defined sequence of steps for solving a problem.'},
+  {q:'What is a flowchart used for?',a:[['Showing steps visually',true],['Charging a battery',false],['Storing electricity',false]],why:'A flowchart represents a process or algorithm using symbols and arrows.'},
+  {q:'Which step should usually come first in a simple algorithm?',a:[['Define the problem',true],['Ignore the goal',false],['Repeat random actions',false]],why:'Understanding the problem helps you choose useful steps.'},
+  {q:'What does a loop do in programming?',a:[['Repeats instructions',true],['Deletes every file',false],['Changes the monitor',false]],why:'A loop repeats a block of instructions while a condition or count allows it.'},
+  {q:'Which is a good algorithm quality?',a:[['Clear and ordered steps',true],['Ambiguous instructions',false],['Missing steps',false]],why:'Clear, ordered instructions make an algorithm easier to follow and test.'},
+  {q:'In a flowchart, what does an arrow normally show?',a:[['Direction of flow',true],['A colour code only',false],['The file size',false]],why:'Arrows show the order or direction between steps.'},
+  {q:'What is a variable commonly used for?',a:[['Storing a value',true],['Drawing a keyboard',false],['Cooling a computer',false]],why:'A variable names a place in which a program can store a value.'},
+  {q:'What does a conditional statement help a program do?',a:[['Choose based on a condition',true],['Always repeat forever',false],['Turn off the screen only',false]],why:'Conditionals let a program take different paths depending on whether a test is true or false.'},
+  {q:'Which of these is an input device?',a:[['Keyboard',true],['Monitor',false],['Speaker',false]],why:'A keyboard sends data into the computer.'},
+  {q:'Why should an algorithm be tested?',a:[['To find mistakes and check results',true],['To make instructions unclear',false],['To remove the goal',false]],why:'Testing helps reveal errors and confirm that the steps solve the problem.'},
+  {q:'In a flowchart, which shape commonly represents a decision?',a:[['Diamond',true],['Circle only',false],['Triangle only',false]],why:'A diamond commonly represents a yes/no or true/false decision.'},
+  {q:'What is debugging?',a:[['Finding and fixing errors',true],['Typing without checking',false],['Decorating a computer',false]],why:'Debugging is the process of locating and correcting problems in a program.'},
+  {q:'What is a good first step when solving a coding problem?',a:[['Understand the requirements',true],['Write random code',false],['Ignore the expected output',false]],why:'Clear requirements help define what the solution must do.'},
+  {q:'What is pseudocode?',a:[['A plain-language outline of an algorithm',true],['A type of monitor',false],['A finished computer chip',false]],why:'Pseudocode describes program logic in a readable, code-like form.'},
+  {q:'What is an infinite loop?',a:[['A loop that never reaches its stopping condition',true],['A loop that runs exactly once',false],['A diagram title',false]],why:'An infinite loop keeps repeating because its exit condition is never met.'}
+ ]}
+};
+const subject=document.getElementById('subject');
+const chips=[...document.querySelectorAll('.topic-chip')];
+const title=document.getElementById('lesson-title'),copy=document.getElementById('lesson-copy'),example=document.getElementById('lesson-example'),question=document.getElementById('quiz-question'),answers=document.getElementById('answers'),feedback=document.getElementById('feedback');
+const toast=document.getElementById('toast');let toastTimer;
+let currentTopic='science',questionIndex=0,score=0,answered=false;
+function showToast(message){toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2200)}
+function getProgress(){try{return JSON.parse(localStorage.getItem('studyloop-demo-progress')||'{}')}catch(e){return {}}}
+function saveProgress(key){try{const data=getProgress();data[key]=(data[key]||0)+1;localStorage.setItem('studyloop-demo-progress',JSON.stringify(data))}catch(e){/* Learning works even if browser storage is blocked. */}}
+let questionOrder=[],sessionPerfectRounds=0,roundStats={answered:0,correct:0,learned:new Set()};
+function shuffle(items){const copy=[...items];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy}
+function updateDashboard(){
+ const total=roundStats.answered,accuracy=total?Math.round(roundStats.correct/total*100):0;
+ document.getElementById('stat-answered').textContent=total;
+ document.getElementById('stat-correct').textContent=roundStats.correct;
+ document.getElementById('stat-accuracy').textContent=total?accuracy+'%':'—';
+ document.getElementById('stat-perfect').textContent=sessionPerfectRounds;
+ document.getElementById('dashboard-badge').textContent=roundStats.answered===topics[currentTopic].questions.length?(accuracy===100?'🏆 PERFECT':accuracy>=70?'✨ ON TRACK':'🌱 KEEP GOING'):'🌱 IN PROGRESS';
+ document.getElementById('dashboard-summary').textContent=total?`${total} of ${topics[currentTopic].questions.length} questions answered in this round. Keep practising to strengthen recall.`:'A fresh shuffled question set is ready. Your stats update after every answer.';
+ document.getElementById('learned-summary').textContent=roundStats.learned.size?[...roundStats.learned].join(' • '):'Start answering to build your topic summary.';
+}
+function startRound(key=currentTopic){
+ currentTopic=topics[key]?key:'science';questionIndex=0;score=0;answered=false;roundStats={answered:0,correct:0,learned:new Set()};
+ questionOrder=shuffle(topics[currentTopic].questions.map((_,i)=>i));
+ subject.value=currentTopic;chips.forEach(chip=>chip.setAttribute('aria-pressed',String(chip.dataset.topic===currentTopic)));
+ const t=topics[currentTopic];title.textContent=t.title;copy.textContent=t.copy;example.textContent=t.example;
+ document.querySelector('.learning-dashboard').classList.remove('round-complete');
+ document.getElementById('share-status').textContent='';
+ renderQuestion();updateDashboard();
+ showToast('Fresh '+t.title.replace(' in brief','')+' question set ready!');
+}
+function renderQuestion(){
+ const t=topics[currentTopic],item=t.questions[questionOrder[questionIndex]];
+ answered=false;answers.dataset.answered='false';question.textContent=item.q;feedback.textContent='';feedback.className='feedback';
+ document.getElementById('question-count').textContent=`Question ${questionIndex+1} of ${t.questions.length}`;
+ document.getElementById('score-count').textContent=`Score: ${score}`;
+ document.getElementById('quiz-progress-fill').style.width=`${(questionIndex/t.questions.length)*100}%`;
+ const next=document.getElementById('next-question');next.disabled=true;next.dataset.completed='false';next.textContent=questionIndex===t.questions.length-1?'Finish round ✓':'Next question →';
+ answers.replaceChildren();
+ shuffle(item.a).forEach(([label,correct])=>{const button=document.createElement('button');button.type='button';button.className='answer';button.textContent=label;button.dataset.correct=String(correct);button.addEventListener('click',()=>checkAnswer(button));answers.appendChild(button)});
+ document.getElementById('lab-tip').textContent='💡 Think first, choose an answer, then read the explanation.';
+}
+function renderTopic(key){sessionPerfectRounds=0;startRound(key)}
+function checkAnswer(button){
+ if(answered)return;answered=true;roundStats.answered++;
+ const item=topics[currentTopic].questions[questionOrder[questionIndex]],correct=button.dataset.correct==='true';
+ [...answers.querySelectorAll('button')].forEach(b=>{b.disabled=true;if(b.dataset.correct==='true')b.classList.add('correct')});
+ if(!correct)button.classList.add('wrong');else{score++;roundStats.correct++;saveProgress(currentTopic);}
+ // Store the concept label from each explanation so the dashboard can say what was covered.
+ const concept=item.why.split(/[.!?]/)[0].trim();if(concept&&!roundStats.learned.has(concept))roundStats.learned.add(concept);
+ feedback.textContent=(correct?'Correct! ':'Good try. ')+item.why;feedback.className='feedback '+(correct?'good':'bad');
+ document.getElementById('score-count').textContent=`Score: ${score}`;
+ document.getElementById('quiz-progress-fill').style.width=`${((questionIndex+1)/topics[currentTopic].questions.length)*100}%`;
+ document.getElementById('next-question').disabled=false;
+ document.getElementById('lab-tip').textContent=correct?'🌟 Great recall! Explain why the answer is correct in your own words.':'🧠 Learning moment: review the explanation, then continue.';
+ updateDashboard();showToast(correct?'Correct answer — well done!':'Answer checked — keep learning!');
+}
+const nextQuestionButton=document.getElementById('next-question');
+nextQuestionButton.addEventListener('click',()=>{
+ if(nextQuestionButton.dataset.completed==='true'){nextQuestionButton.dataset.completed='false';startRound(currentTopic);return}
+ if(!answered)return;
+ if(questionIndex<topics[currentTopic].questions.length-1){questionIndex++;renderQuestion();return}
+ const total=topics[currentTopic].questions.length,perfect=score===total;
+ if(perfect)sessionPerfectRounds++;
+ feedback.textContent=perfect?`Perfect round! ${score}/${total} correct. You mastered this question set — start a fresh shuffled round to keep learning.`:`Round complete: ${score}/${total} correct (${Math.round(score/total*100)}%). Review the explanations, then start a fresh question set.`;
+ feedback.className='feedback '+(perfect?'good':score>=Math.ceil(total*.7)?'good':'bad');
+ document.getElementById('quiz-progress-fill').style.width='100%';
+ const next=document.getElementById('next-question');next.disabled=false;next.textContent=perfect?'Perfect! New round ↻':'Start fresh round ↻';
+ document.querySelector('.learning-dashboard').classList.add('round-complete');
+ document.getElementById('lab-tip').textContent=perfect?'🏆 All answers correct! A new round will shuffle the questions and answer choices.':'🌱 You have completed the set. Try again to improve your score.';
+ updateDashboard();showToast(perfect?'Perfect score! Ready for a new round.':`Finished: ${score}/${total}`);
+ // The next action deliberately starts a new randomized round after completion.
+ next.dataset.completed='true';
+});
+subject.addEventListener('change',()=>renderTopic(subject.value));
+chips.forEach(chip=>chip.addEventListener('click',()=>renderTopic(chip.dataset.topic)));
+document.getElementById('reset-round').addEventListener('click',()=>startRound(currentTopic));
+document.getElementById('share-score').addEventListener('click',async()=>{
+ const total=topics[currentTopic].questions.length,accuracy=roundStats.answered?Math.round(roundStats.correct/roundStats.answered*100):0;
+ const learned=roundStats.learned.size?[...roundStats.learned].slice(0,5).join('; '):'I am starting a new learning round.';
+ const message=`StudyLoop Learning Mini-Lab\nTopic: ${topics[currentTopic].title.replace(' in brief','')}\nScore: ${score}/${total}\nAnswered: ${roundStats.answered}/${total}\nAccuracy: ${roundStats.answered?accuracy+'%':'Not scored yet'}\nWhat I learned: ${learned}\nSmall steps. Regular practice. Better understanding.`;
+ const status=document.getElementById('share-status');
+ try{if(navigator.share){await navigator.share({title:'My StudyLoop learning score',text:message});status.textContent='Share sheet opened.'}
+ else if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(message);status.textContent='Score summary copied. Paste it into your message or post.';showToast('Score summary copied!')}
+ else{const area=document.createElement('textarea');area.value=message;area.setAttribute('readonly','');area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();const ok=document.execCommand('copy');area.remove();status.textContent=ok?'Score summary copied. Paste it into your message or post.':'Sharing is not available in this browser; you can read the score above.';}
+ }catch(err){if(err.name!=='AbortError')status.textContent='Sharing was unavailable. You can still use the score and learning summary above.'}
+});
+renderTopic('science');
+
+// Mini-lab artwork responds to mouse, touch, Enter, and Space.
+const labArtTips={
+ book:'📚 Book tip: break a big topic into one small explanation and one example.',
+ planet:'🪐 Practice tip: answering from memory helps you check what you understand.',
+ idea:'💡 Focus tip: ask one clear question before you start reading.',
+ curiosity:'⚛️ Curiosity tip: ask “why?” and connect a new idea to something you already know.'
+};
+document.querySelectorAll('[data-lab-art]').forEach(item=>{
+ const activate=()=>{
+  const tip=labArtTips[item.dataset.labArt]||'Keep learning one small step at a time.';
+  const status=document.getElementById('lab-art-status');if(status)status.textContent=tip;
+  document.getElementById('lab-tip').textContent=tip;showToast(tip);
+ };
+ item.addEventListener('click',activate);
+ item.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();activate()}});
+});
+// Interactive 3D illustration hotspots give each decorative object a learning purpose.
+const artMessages={
+ idea:'Idea bulb: start with one question you genuinely want to understand.',
+ book:'Learning book: read one short explanation, then restate it in your own words.',
+ planet:'Practice planet: practise a small question before moving to the next topic.',
+ progress:'Progress star: review feedback and choose one thing to improve.',
+ practice:'Practice target: use mistakes as information about what to revisit.'
+};
+document.querySelectorAll('[data-art-action]').forEach(object=>{
+ const activate=()=>{
+  const message=artMessages[object.dataset.artAction]||'Explore one small learning step at a time.';
+  const status=document.getElementById('art-status');
+  if(status)status.textContent=message;
+  showToast(message);
+ };
+ object.addEventListener('click',activate);
+ object.addEventListener('keydown',event=>{
+  if(event.key==='Enter'||event.key===' '){event.preventDefault();activate()}
+ });
+});
+
+// Expandable terms: buttons expose state for assistive technology.
+document.querySelectorAll('.term-item > button').forEach(button=>{
+ button.addEventListener('click',()=>{
+  const item=button.closest('.term-item');
+  const open=item.classList.toggle('open');
+  button.setAttribute('aria-expanded',String(open));
+  button.querySelector('span:last-child').textContent=open?'−':'＋';
+ });
+});
+// First-visit security warning. Keep this interaction independent of other page scripts.
+const notice=document.getElementById('security-notice');
+const understood=document.getElementById('notice-understood');
+const continueButton=document.getElementById('notice-continue');
+window.studyLoopSyncNotice=function(){
+  if(!understood || !continueButton) return;
+  const accepted = understood.checked === true;
+  continueButton.disabled = !accepted;
+  continueButton.setAttribute('aria-disabled', String(!accepted));
+};
+window.studyLoopContinueNotice=function(event){
+  if(event){event.preventDefault();event.stopPropagation();}
+  if(!notice || !understood) return;
+  if(!understood.checked){understood.focus();return;}
+  notice.hidden=true;
+  notice.style.display='none';
+  notice.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  try{sessionStorage.setItem('studyloop-notice-seen','yes')}catch(e){}
+};
+if(understood && continueButton){
+  understood.addEventListener('input',window.studyLoopSyncNotice);
+  understood.addEventListener('change',window.studyLoopSyncNotice);
+  window.studyLoopSyncNotice();
+  continueButton.addEventListener('click',window.studyLoopContinueNotice);
+}
+document.getElementById('notice-exit').addEventListener('click',()=>showToast('Review the notice before continuing.'));
+document.getElementById('notice-terms-link').addEventListener('click',()=>{
+ notice.hidden=true;
+ document.getElementById('trust').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+});
+try{if(sessionStorage.getItem('studyloop-notice-seen')==='yes')notice.hidden=true}catch(e){}
+
+})();
+</script>
+
+<!-- Isolated fallback for the privacy notice: runs independently of the main app script. -->
+<script>
+(function () {
+  function setupStudyLoopNoticeFix() {
+    var overlay = document.getElementById('security-notice');
+    var checkbox = document.getElementById('notice-understood');
+    var button = document.getElementById('notice-continue');
+    if (!overlay || !checkbox || !button) return;
+    function sync() { button.disabled = !checkbox.checked; button.setAttribute('aria-disabled', String(!checkbox.checked)); }
+    function proceed(event) {
+      if (event) { event.preventDefault(); event.stopPropagation(); }
+      if (!checkbox.checked) { sync(); checkbox.focus(); return; }
+      overlay.hidden = true;
+      overlay.style.display = 'none';
+      overlay.setAttribute('aria-hidden', 'true');
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      try { sessionStorage.setItem('studyloop-notice-seen', 'yes'); } catch (e) {}
+    }
+    checkbox.addEventListener('change', sync);
+    checkbox.addEventListener('input', sync);
+    button.addEventListener('click', proceed, true);
+    button.onclick = proceed;
+    sync();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupStudyLoopNoticeFix);
+  else setupStudyLoopNoticeFix();
+})();
+</script>
+
+</body>
+</html>
